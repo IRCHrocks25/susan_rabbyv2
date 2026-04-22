@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susan Rabby — AI Guidance Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Syne:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mirage:#16232A;
+  --orange:#FF5B04;
+  --teal:#075056;
+  --sand:#E4EEF0;
+  --white:#FFFFFF;
+  --mirage-80:rgba(22,35,42,0.8);
+  --mirage-50:rgba(22,35,42,0.5);
+  --mirage-20:rgba(22,35,42,0.2);
+  --mirage-08:rgba(22,35,42,0.08);
+  --sand-dark:#C8D8DC;
+  --teal-light:#0A6E75;
+  --orange-deep:#D94A00;
+  --px:8vw;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--sand);color:var(--mirage);font-size:16px;line-height:1.65;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;height:56px;padding:0 var(--px);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Fraunces',serif;font-size:17px;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+.nav-logo-dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-btn{background:var(--orange)!important;color:var(--white)!important;padding:8px 18px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-btn:hover{background:var(--orange-deep)!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding-top:0;display:grid;grid-template-rows:1fr auto;background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776767394/Frame_2_ig6gqa.png') center center / cover no-repeat;}
+.hero-top{padding:120px var(--px) 60px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;max-width:100%}
+.hero-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.hero-label::before{content:'';display:block;width:24px;height:1px;background:var(--orange)}
+.hero-h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(42px,6.3vw,91px);line-height:1.02;letter-spacing:-0.03em;color:var(--white);margin-bottom:36px;max-width:900px}
+.hero-h1 em{font-style:italic;color:var(--orange)}
+.hero-right-top{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:14px;line-height:1.6}
+.hero-desc{font-size:17px;font-weight:400;color:rgba(255,255,255,1);line-height:1.85;max-width:560px;margin-bottom:32px}
+.hero-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,1);line-height:1.85;max-width:560px;margin-bottom:32px}
+.hero-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.btn-orange{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--white);padding:13px 24px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s;border:none;cursor:pointer}
+.btn-orange:hover{background:var(--orange-deep)}
+.btn-orange .ico{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:10px}
+.btn-wire{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.6);padding:12px 20px;border-radius:2px;border:1px solid rgba(255,255,255,0.2);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s;cursor:pointer}
+.btn-wire:hover{border-color:rgba(255,255,255,0.5);color:var(--white)}
+.hero-stats{border-top:1px solid rgba(255,255,255,0.1);display:grid;grid-template-columns:repeat(4,1fr)}
+.hstat{padding:36px var(--px);border-right:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:flex-start;gap:10px;transition:background .25s}
+.hstat:last-child{border-right:none}
+.hstat:hover{background:rgba(255,255,255,0.04)}
+.hstat-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-bottom:4px}
+.hstat-num{font-family:'Fraunces',serif;font-size:clamp(48px,5vw,72px);font-weight:300;color:var(--white);letter-spacing:-0.04em;line-height:1}
+.hstat-label{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.55;max-width:160px}
+
+/* ── SHARED ── */
+.stag{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mirage-50);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.stag::before{content:'';display:block;width:20px;height:1px;background:currentColor}
+.stag-light{color:rgba(255,255,255,0.4)}
+.stag-light::before{background:rgba(255,255,255,0.4)}
+.stag-orange{color:var(--orange)}
+.stag-orange::before{background:var(--orange)}
+.sh{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(30px,3.8vw,50px);line-height:1.08;letter-spacing:-0.02em;color:var(--mirage)}
+.sh em{font-style:italic;color:var(--orange)}
+.sh-white{color:#FFFFFF}
+.sh-white em{color:var(--orange)}
+.body-t{font-size:16px;font-weight:400;color:var(--mirage-50);line-height:1.85}
+.body-t-light{color:rgba(255,255,255,0.45)}
+
+/* ── STATS LIGHT ── */
+.stats-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
+.stats-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;padding-bottom:56px;border-bottom:1px solid var(--mirage-08);margin-bottom:56px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.sitem{padding:0 48px 0 0;border-right:1px solid var(--mirage-08)}
+.sitem:first-child{padding-left:0}
+.sitem:last-child{border-right:none;padding-right:0;padding-left:48px}
+.sitem:nth-child(2){padding:0 48px}
+.snum{font-family:'Fraunces',serif;font-size:72px;font-weight:300;line-height:1;color:var(--teal);letter-spacing:-0.03em;margin-bottom:12px}
+.sdesc{font-size:16px;color:var(--mirage-50);line-height:1.75}
+.sitem-src{font-size:12px;color:var(--mirage-20);margin-top:8px;font-style:italic}
+.stats-note{margin-top:48px;padding-top:32px;border-top:1px solid var(--mirage-08);font-size:16px;color:var(--mirage-50);line-height:1.85;max-width:700px}
+.stats-note strong{color:var(--mirage);font-weight:500}
+
+/* ── PROBLEM ── */
+.problem-section{background:var(--sand);border-top:1px solid var(--mirage-08);display:grid;grid-template-columns:1fr 1fr}
+.problem-left{padding:64px var(--px);display:flex;flex-direction:column;gap:0;border-right:1px solid var(--mirage-08)}
+.problem-left .stag{margin-bottom:16px}
+.problem-left .sh{margin-bottom:32px}
+.problem-intro{font-size:16px;color:var(--mirage-50);line-height:1.85;margin-bottom:14px}
+.problem-close{font-size:16px;line-height:1.8;margin-top:28px;padding:16px 20px;border-left:3px solid var(--orange);background:rgba(255,91,4,0.05)}
+.problem-close strong{color:var(--mirage);font-weight:500}
+.problem-quotes-stack{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+.qcard{background:var(--white);border:1px solid var(--mirage-08);border-radius:2px;padding:18px 20px 18px 42px;position:relative;transition:border-color .2s,box-shadow .2s}
+.qcard:hover{border-color:var(--mirage-20);box-shadow:0 2px 12px rgba(22,35,42,0.06)}
+.qcard::before{content:'"';font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--sand-dark);position:absolute;top:2px;left:12px;line-height:1}
+.qcard p{font-size:16px;font-weight:400;color:var(--mirage);line-height:1.65}
+.problem-right{position:relative;overflow:hidden}
+.problem-right img{width:100%;height:100%;object-fit:cover;display:block;min-height:unset!important}
+
+/* ── DELIVERS ── */
+.delivers-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
+.delivers-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.delivers-intro{font-size:16px;color:var(--mirage-50);line-height:1.85}
+.delivers-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:520px;border:1px solid var(--mirage-08)}
+.dtab{
+  position:relative;overflow:hidden;cursor:pointer;
+  border-right:1px solid var(--mirage-08);
+  transition:flex .55s cubic-bezier(.4,0,.2,1);
+  flex:1;
+}
+.dtab:last-child{border-right:none}
+/* background layer */
+.dtab-bg{
+  position:absolute;inset:0;
+  will-change:transform;
+  transition:transform .08s linear;
+}
+.dtab-bg-inner{
+  position:absolute;inset:-40px;
+  display:flex;align-items:center;justify-content:center;
+}
+/* overlay gradient */
+.dtab-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(22,35,42,0.18) 0%, rgba(22,35,42,0.72) 100%);
+  transition:background .4s ease;
+  z-index:1;
+}
+.dtab:hover .dtab-overlay,
+.dtab.active .dtab-overlay{
+  background:linear-gradient(180deg, rgba(22,35,42,0.1) 0%, rgba(22,35,42,0.88) 100%);
+}
+/* content */
+.dtab-content{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:32px 28px;
+}
+.dtab-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  margin-bottom:12px;
+  opacity:0;transform:translateY(6px);
+  transition:opacity .3s ease .05s, transform .3s ease .05s;
+}
+.dtab:hover .dtab-tag,.dtab.active .dtab-tag{opacity:1;transform:none}
+.dtab-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.dtab-num{
+  font-family:'Fraunces',serif;font-size:13px;font-weight:300;
+  color:rgba(255,255,255,0.35);letter-spacing:.06em;
+  margin-bottom:8px;
+  transition:color .3s;
+}
+.dtab:hover .dtab-num,.dtab.active .dtab-num{color:var(--orange)}
+.dtab-title{
+  font-family:'Fraunces',serif;font-size:clamp(18px,2vw,26px);font-weight:300;
+  color:var(--white);line-height:1.2;letter-spacing:-0.01em;
+  margin-bottom:0;
+  transition:margin .35s ease, font-size .35s ease;
+}
+.dtab-body{
+  font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;
+  max-height:0;overflow:hidden;
+  margin-top:0;
+  opacity:0;
+  transition:max-height .45s cubic-bezier(.4,0,.2,1),
+             opacity .35s ease .1s,
+             margin .35s ease;
+}
+.dtab:hover .dtab-body,.dtab.active .dtab-body{
+  max-height:200px;opacity:1;margin-top:14px;
+}
+.dtab-arrow{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.25);
+  color:rgba(255,255,255,0.6);font-size:13px;
+  margin-top:20px;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .3s ease .15s, transform .3s ease .15s, border-color .2s, background .2s;
+}
+.dtab:hover .dtab-arrow,.dtab.active .dtab-arrow{opacity:1;transform:none}
+.dtab:hover .dtab-arrow:hover{background:var(--orange);border-color:var(--orange);color:var(--white)}
+
+/* ── STANCE ── */
+.stance{background:var(--mirage);padding:80px var(--px);position:relative;overflow:hidden}
+.stance::before{content:'';position:absolute;inset:0;background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776761211/43f2fb697ddb0b606dfc56e1e29c4cf8_LE_upscale_prime_su3vxf.jpg') center center / cover no-repeat;z-index:0;opacity:.18}
+.stance > *{position:relative;z-index:1}
+.stance-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:48px}
+.stance-body-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.stance-body-cols p{font-size:16px;color:rgba(255,255,255,1);line-height:1.85;margin-bottom:14px}
+.stance-body-cols p:last-child{margin-bottom:0}
+.hardline{padding:16px 20px;border-left:3px solid var(--orange);background:rgba(255,91,4,0.08);font-size:16px;font-weight:500;color:rgba(255,255,255,1);line-height:1.7;margin-bottom:14px}
+.stance-final{font-size:16px;font-weight:500;color:rgba(255,255,255,1)!important}
+
+/* ── FRAMEWORK ── */
+.framework-section{background:var(--white);padding:80px 0}
+.framework-head{padding:0 var(--px) 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+.num-row{border-top:1px solid var(--mirage-08);display:grid;grid-template-columns:72px 1fr auto;align-items:start;padding:0 var(--px);cursor:pointer;transition:background .25s;user-select:none}
+.num-row:last-child{border-bottom:1px solid var(--mirage-08)}
+.num-row:hover{background:var(--sand)}
+.num-row.open{background:var(--sand)}
+.row-n{font-family:'Fraunces',serif;font-size:13px;font-weight:300;color:var(--mirage-20);padding:32px 0;border-right:1px solid var(--mirage-08);display:flex;align-items:flex-start;letter-spacing:.04em;transition:color .25s}
+.num-row.open .row-n{color:var(--orange)}
+.row-content{padding:0 0 0 32px}
+.row-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0}
+.row-title{font-size:19px;font-weight:600;color:var(--mirage);line-height:1.3}
+.row-toggle{width:28px;height:28px;border-radius:50%;border:1px solid var(--mirage-20);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--mirage-50);flex-shrink:0;transition:background .2s,border-color .2s,transform .35s,color .2s}
+.num-row:hover .row-toggle{border-color:var(--mirage-50);color:var(--mirage)}
+.num-row.open .row-toggle{background:var(--orange);border-color:var(--orange);color:var(--white);transform:rotate(45deg)}
+.row-body{font-size:16px;color:var(--mirage-50);line-height:1.8;max-width:580px;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .35s ease .05s,padding .4s ease}
+.num-row.open .row-body{max-height:400px;opacity:1;padding-bottom:36px}
+.row-tag{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(7,80,86,0.08);padding:5px 10px;border-radius:2px;align-self:start;margin-top:36px;white-space:nowrap;flex-shrink:0;transition:background .25s,color .25s}
+.num-row.open .row-tag{background:var(--orange);color:var(--white)}
+
+/* ── PRACTICE ── */
+.practice-section{background:var(--sand);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
+.practice-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px}
+.practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mirage-08)}
+.pcard{background:var(--white);padding:40px 36px;transition:background .2s}
+.pcard:hover{background:#EEF8F9}
+.pcard-icon{width:40px;height:40px;background:rgba(7,80,86,0.08);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.pcard-icon svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pcard-title{font-size:18px;font-weight:600;color:var(--mirage);margin-bottom:12px}
+.pcard-body{font-size:16px;color:var(--mirage-50);line-height:1.85}
+
+/* ── ABOUT SPLIT ── */
+.about-split{background:var(--white);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--mirage-08);align-items:stretch}
+.about-img-col{position:relative;overflow:hidden;background:var(--teal);border-right:1px solid var(--mirage-08)}
+.about-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-img-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--teal);position:relative}
+.about-geo{position:absolute;inset:0;opacity:.12;pointer-events:none}
+.about-badge{position:absolute;bottom:28px;left:28px;background:var(--orange);color:var(--white);padding:18px 22px;border-radius:2px;max-width:220px}
+.about-badge strong{display:block;font-family:'Fraunces',serif;font-size:16px;font-weight:300;font-style:italic;margin-bottom:4px;line-height:1.3}
+.about-badge span{font-size:12px;opacity:.8}
+.about-txt{padding:64px 56px}
+.about-initials{width:68px;height:68px;border-radius:50%;background:var(--sand);border:1px solid var(--sand-dark);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:20px;color:var(--teal);margin-bottom:28px}
+.about-txt .sh{margin-bottom:24px}
+.about-txt p{font-size:16px;color:var(--mirage-50);line-height:1.85;margin-bottom:1rem}
+
+/* ── CREDENTIALS (light interactive) ── */
+.creds-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
+.creds-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.creds-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mirage-08)}
+.cred-card{
+  background:var(--sand);padding:40px 36px;
+  cursor:pointer;position:relative;overflow:hidden;
+  transition:background .25s;
+}
+.cred-card::after{
+  content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;
+  background:var(--orange);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.cred-card:hover{background:var(--white)}
+.cred-card:hover::after,.cred-card.open::after{transform:scaleX(1)}
+.cred-card.open{background:var(--white)}
+.cred-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.cred-num{font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--teal);letter-spacing:-0.02em;line-height:1}
+.cred-top-right{flex:1;padding-top:6px}
+.cred-title{font-size:15px;font-weight:600;color:var(--mirage);margin-bottom:0;line-height:1.4}
+.cred-toggle{
+  width:28px;height:28px;border-radius:50%;border:1px solid var(--mirage-20);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:16px;color:var(--mirage-50);margin-top:4px;
+  transition:background .2s,border-color .2s,transform .3s,color .2s;
+}
+.cred-card:hover .cred-toggle{border-color:var(--mirage-50);color:var(--mirage)}
+.cred-card.open .cred-toggle{background:var(--orange);border-color:var(--orange);color:var(--white);transform:rotate(45deg)}
+.cred-body{
+  font-size:16px;color:var(--mirage-50);line-height:1.75;
+  max-height:0;overflow:hidden;opacity:0;
+  margin-top:0;
+  transition:max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s ease .05s, margin .3s ease;
+}
+.cred-card.open .cred-body{max-height:160px;opacity:1;margin-top:20px}
+.cred-divider{width:100%;height:1px;background:var(--mirage-08);margin:16px 0 0;opacity:0;transition:opacity .3s ease .05s}
+.cred-card.open .cred-divider{opacity:1}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  position:relative;
+  padding:100px var(--px);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  overflow:hidden;
+}
+.final-cta::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776725825/dss_ognbzy.jpg') center center / cover no-repeat;
+  z-index:0;
+}
+.final-cta > *{position:relative;z-index:2}
+.final-cta .sh{color:var(--mirage)}
+.final-cta .sh em{color:var(--orange);font-style:italic}
+.cta-desc{font-size:16px;color:var(--mirage-50);line-height:1.85;margin-top:20px}
+.cta-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.cta-list li{display:flex;align-items:flex-start;gap:10px;font-size:16px;color:var(--mirage-80);line-height:1.5}
+.cta-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px}
+.btn-mirage{display:inline-flex;align-items:center;gap:10px;background:var(--mirage);color:var(--white);padding:15px 28px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s;border:none;cursor:pointer;width:fit-content}
+.btn-mirage:hover{background:var(--orange)}
+.btn-mirage .ico{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:10px}
+.cta-meta{font-size:12px;color:var(--mirage-50);margin-top:12px;line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padding:36px var(--px);display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:20px}
+.foot-brand{font-family:'Fraunces',serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.foot-brand-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.foot-tagline{font-size:12px;color:rgba(255,255,255,0.25);line-height:1.65;max-width:260px}
+.foot-center{text-align:center}
+.foot-center p{font-size:12px;color:rgba(255,255,255,0.25);line-height:1.8;letter-spacing:.02em}
+.foot-contact{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8;text-align:right}
+.foot-contact a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+.foot-contact a:hover{color:rgba(255,255,255,0.8)}
+.foot-links{display:flex;justify-content:flex-end;gap:16px;margin-top:8px;list-style:none}
+.foot-links a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,0.6)}
+
+/* ── FADE IN ── */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:860px){
+  :root{--px:5vw}
+  nav{padding:0 var(--px)}
+  .nav-links li:not(:last-child){display:none}
+  .hero-top,.stats-head,.delivers-head,.stance-header,.stance-body-cols,.framework-head,.practice-head,.practice-grid,.creds-head,.final-cta,.about-split,.problem-section{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hstat{padding:24px var(--px);border-bottom:1px solid rgba(255,255,255,0.08)}
+  .hstat-num{font-size:clamp(36px,10vw,52px)}
+  .stats-row{grid-template-columns:1fr}
+  .sitem{padding:24px 0!important;border-right:none;border-bottom:1px solid rgba(255,255,255,0.12)}
+  .sitem:last-child{border-bottom:none}
+  .quotes-grid{grid-template-columns:1fr}
+  .creds-grid{grid-template-columns:1fr}
+  .stats-section,.delivers-section,.stance,.practice-section,.creds-section,.final-cta{padding-left:var(--px);padding-right:var(--px)}
+  .framework-head{padding-left:var(--px);padding-right:var(--px)}
+  .num-row{padding:0 var(--px)}
+  footer{grid-template-columns:1fr;text-align:center}
+  .foot-contact{text-align:center}
+  .foot-links{justify-content:center}
+  .delivers-tabs{grid-template-columns:1fr;height:auto}
+  .dtab{min-height:260px;border-right:none;border-bottom:1px solid var(--mirage-08)}
+  .dtab:last-child{border-bottom:none}
+  .dtab-body{max-height:none!important;opacity:1!important;margin-top:12px!important}
+  .dtab-tag,.dtab-arrow{opacity:1!important;transform:none!important}
+  .problem-section{padding:0}
+  .problem-left{padding:48px var(--px)}
+  .problem-img-placeholder{min-height:320px}
+  .about-img-col{min-height:300px}
+  .about-txt{padding:36px var(--px)}
+  .drow{flex-wrap:wrap}
+  .drow-tag{margin:0 0 20px 88px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776767672/logo_i3eron.png" alt="Susan Rabby AI Guidance" style="height:32px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#stats">Approach</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-btn">Book a Call ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-top fade-up">
+      <div class="hero-label">AI Strategic Advisor · Service Businesses</div>
+      <h1 class="hero-h1">Practical AI for<br>Service Businesses<br>That Put Their <em>People First.</em></h1>
+      <p class="hero-right-top">The businesses getting real results from AI are thinking differently. They think holistically.</p>
+      <p class="hero-desc">Susan Rabby helps service businesses implement AI in ways that align with their entire operation, so improvements are sustainable, measurable, and embraced by the people doing the work.</p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-orange">Book Your Complimentary 30-Minute Call <span class="ico">→</span></a>
+      </div>
+  </div>
+  <div class="hero-stats fade-up" style="transition-delay:.22s">
+    <div class="hstat">
+      <div class="hstat-num" data-count="80" data-suffix="%">80%</div>
+      <div class="hstat-label">of AI projects fail — twice the non-AI rate</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num" data-count="70" data-suffix="%">70%</div>
+      <div class="hstat-label">change initiatives fail from employee pushback</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num" data-count="75" data-suffix="%">75%</div>
+      <div class="hstat-label">of employees lack confidence using AI at work</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num" data-count="20" data-suffix="+">20+</div>
+      <div class="hstat-label">years at the intersection of people & systems</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     STATISTICS & THREAT VALIDATION
+════════════════════════════════════════ -->
+<section class="stats-section fade-up" id="stats">
+  <div class="stats-head">
+    <div>
+      <div class="stag">Statistics &amp; Threat Validation</div>
+      <h2 class="sh">Most AI Projects Fail.<br>The Reason Is Not<br><em>the Technology.</em></h2>
+    </div>
+    <p class="body-t">The numbers are hard to ignore. The pattern is consistent across every study. AI fails not because the tools are broken. It fails because businesses skip the foundational work: understanding how their operations actually run, designing a strategy that aligns with measurable goals, and preparing the people expected to do the work.</p>
+  </div>
+  <div class="stats-row">
+    <div class="sitem">
+      <div class="snum" data-count="80" data-suffix="%">80%</div>
+      <p class="sdesc">Over 80% of AI projects fail, roughly twice the failure rate of non-AI technology initiatives.</p>
+      <p class="sitem-src">RAND-linked research</p>
+    </div>
+    <div class="sitem">
+      <div class="snum" data-count="70" data-suffix="%">70%</div>
+      <p class="sdesc">Up to 70% of change initiatives fail due to employee pushback or inadequate management support, and AI projects are no exception.</p>
+      <p class="sitem-src">Cloud Security Alliance</p>
+    </div>
+    <div class="sitem">
+      <div class="snum" data-count="75" data-suffix="%">75%</div>
+      <p class="sdesc">75% of employees lack confidence in how to utilize AI at work, and only about one-third of managers feel equipped to guide AI adoption.</p>
+      <p class="sitem-src">Wiley Workplace Intelligence Report</p>
+    </div>
+  </div>
+  <p class="stats-note">Moving fast without a plan is not a strategy. <strong>It is a cost.</strong></p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     THE PROBLEM
+════════════════════════════════════════ -->
+<section class="problem-section fade-up">
+
+  <!-- LEFT: copy + quotes -->
+  <div class="problem-left">
+    <div>
+      <div class="stag">The Problem</div>
+      <h2 class="sh">You Are Not Confused.<br>You Are <em>Overwhelmed.</em></h2>
+      <p class="problem-intro">There is a difference.</p>
+      <p class="problem-intro">You are an experienced business owner who has built something real. But the AI conversation has become so loud and so full of contradictory advice that knowing where to start feels impossible.</p>
+      <p class="problem-intro" style="font-weight:600;color:var(--mirage)">Sound familiar?</p>
+      <div class="problem-quotes-stack">
+        <div class="qcard"><p>"I know we should be looking at AI, but I have no idea where it will actually add value."</p></div>
+        <div class="qcard"><p>"I am tired of the hype. I just need something practical that works."</p></div>
+        <div class="qcard"><p>"My staff are going to push back the moment I start changing how they do their jobs."</p></div>
+        <div class="qcard"><p>"I am not spending money on tools that no one ends up using."</p></div>
+      </div>
+    </div>
+    <div class="problem-close"><strong>These are not excuses. They are the right instincts. You deserve a clearer path forward.</strong></div>
+  </div>
+
+  <!-- RIGHT: image -->
+  <div class="problem-right">
+    <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776727309/c16fcc02d4b3e59af1a910755e180e5c_LE_upscale_prime_nfp6yw.jpg" alt="You Are Not Confused. You Are Overwhelmed." style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHAT THE RIGHT APPROACH DELIVERS
+════════════════════════════════════════ -->
+<section class="delivers-section fade-up">
+  <div class="delivers-head">
+    <div>
+      <div class="stag">What the Right Approach Delivers</div>
+      <h2 class="sh">Here Is What the<br>Right Approach<br><em>Delivers</em></h2>
+    </div>
+    <p class="delivers-intro">When AI is introduced correctly, the results are specific and measurable. This is what Susan's process is designed to deliver. And it starts long before anything is implemented.</p>
+  </div>
+
+  <div class="delivers-tabs">
+
+    <!-- TAB 1 -->
+    <div class="dtab" data-index="0">
+      <div class="dtab-bg">
+        <div class="dtab-bg-inner">
+          <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776723163/7b892720202f195e315a051c595eada4_1_w0ksji.png" alt="A Clear Roadmap" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+        </div>
+      </div>
+      <div class="dtab-overlay"></div>
+      <div class="dtab-content">
+        <div class="dtab-tag"><span class="dtab-tag-dot"></span>Direction</div>
+        <div class="dtab-num">01</div>
+        <div class="dtab-title">A Clear<br>Roadmap</div>
+        <div class="dtab-body">You move forward with a clear roadmap, not a guess or a gamble. Every recommendation is grounded in your specific goals, workflows, systems, and people. No surprises at any stage.</div>
+        <div class="dtab-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- TAB 2 -->
+    <div class="dtab" data-index="1">
+      <div class="dtab-bg">
+        <div class="dtab-bg-inner">
+          <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776727348/6ac7fdbb4fdaface17b080a3db9c744a_1_fqmm3i.png" alt="A Team That Stays" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+        </div>
+      </div>
+      <div class="dtab-overlay"></div>
+      <div class="dtab-content">
+        <div class="dtab-tag"><span class="dtab-tag-dot"></span>People</div>
+        <div class="dtab-num">02</div>
+        <div class="dtab-title">A Team<br>That Stays</div>
+        <div class="dtab-body">Your teams adopt new ways of working with confidence because they were supported, not blindsided by it. Employees who are trained and supported don't resist change — they own it.</div>
+        <div class="dtab-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- TAB 3 -->
+    <div class="dtab" data-index="2">
+      <div class="dtab-bg">
+        <div class="dtab-bg-inner">
+          <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776727917/hhjh_ibhpu3.jpg" alt="Time for Revenue Work" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+        </div>
+      </div>
+      <div class="dtab-overlay"></div>
+      <div class="dtab-content">
+        <div class="dtab-tag"><span class="dtab-tag-dot"></span>Output</div>
+        <div class="dtab-num">03</div>
+        <div class="dtab-title">Time for<br>Revenue Work</div>
+        <div class="dtab-body">Your teams spend less time on repetitive manual tasks and more time on work that drives revenue. Friction removed, capacity created — that is the operational advantage AI is designed to deliver.</div>
+        <div class="dtab-arrow">→</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     THE HARD STANCE
+════════════════════════════════════════ -->
+<section class="stance fade-up">
+
+  <!-- Header row: tag + headline -->
+  <div class="stance-header">
+    <div>
+      <div class="stag stag-orange">The Hard Stance</div>
+      <h2 class="sh sh-white">AI is an <em>Assistant.</em><br>Not a Replacement.</h2>
+    </div>
+    <div class="hardline">If your goal is to use AI to eliminate people, she is not the right fit for you. Full stop.</div>
+  </div>
+
+  <!-- Two-column body text -->
+  <div class="stance-body-cols">
+    <div>
+      <p>AI is one of the most powerful operational advantages available to service businesses today. Used correctly, it removes daily friction, frees your team for higher-value work, and creates real efficiency across your operation.</p>
+      <p>But it is not a shortcut to cutting your headcount. This is where Susan draws a hard line.</p>
+    </div>
+    <div>
+      <p>Her work is built on a foundational belief: your people are your business. Technology should make them more capable, not make them redundant. When employees are supported through a new initiative, they adapt, perform better, and carry your business forward.</p>
+      <p class="stance-final">AI is an assistant. Not a replacement.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════
+     THE FRAMEWORK
+════════════════════════════════════════ -->
+<section class="framework-section fade-up" id="framework">
+  <div class="framework-head">
+    <div>
+      <div class="stag">The Framework</div>
+      <h2 class="sh">A Structured Path.<br>In <em>Order. Every Time.</em></h2>
+    </div>
+    <p class="body-t">Susan's process follows three steps, conducted in order, every time.</p>
+  </div>
+
+  <div class="num-row open" onclick="toggleRow(this)">
+    <div class="row-n">01</div>
+    <div class="row-content">
+      <div class="row-header">
+        <div class="row-title">Assessment</div>
+        <div class="row-toggle">+</div>
+      </div>
+      <p class="row-body">Susan will guide you through a strategic engagement designed to identify where AI can create measurable value across your business as a whole, not just within isolated tasks. Most businesses approach AI tactically without understanding how it will affect the wider operation. The result is fragmented systems, low adoption, and missed value. A holistic process identifies AI opportunities that will genuinely drive meaningful business results.</p>
+    </div>
+    <div class="row-tag">Step 1</div>
+  </div>
+
+  <div class="num-row" onclick="toggleRow(this)">
+    <div class="row-n">02</div>
+    <div class="row-content">
+      <div class="row-header">
+        <div class="row-title">Implementation</div>
+        <div class="row-toggle">+</div>
+      </div>
+      <p class="row-body">With a clear strategic roadmap in hand, practical AI solutions are designed and deployed in manageable phases, aligned with business goals and operational priorities.</p>
+    </div>
+    <div class="row-tag">Step 2</div>
+  </div>
+
+  <div class="num-row" onclick="toggleRow(this)">
+    <div class="row-n">03</div>
+    <div class="row-content">
+      <div class="row-header">
+        <div class="row-title">Adoption</div>
+        <div class="row-toggle">+</div>
+      </div>
+      <p class="row-body">Implementation is not the finish line. This phase ensures your team is trained, supported, and confident. The best AI solution delivers nothing if the people expected to use it are not on board.</p>
+    </div>
+    <div class="row-tag">Step 3</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHAT THIS LOOKS LIKE IN PRACTICE
+════════════════════════════════════════ -->
+<section class="practice-section fade-up">
+  <div class="practice-head">
+    <div>
+      <div class="stag">What This Looks Like in Practice</div>
+      <h2 class="sh">What This Looks<br>Like <em>in Practice</em></h2>
+    </div>
+    <p class="body-t">Every recommendation Susan makes is grounded in understanding your business goals, operational priorities, and current challenges — then mapping how your workflows, systems, data, and people connect.</p>
+  </div>
+  <div class="practice-grid">
+    <div class="pcard">
+      <div class="pcard-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+      </div>
+      <div class="pcard-title">Confident Decision-Making</div>
+      <p class="pcard-body">Every recommendation Susan makes is grounded in understanding your business goals, operational priorities, and current challenges. Then she maps how your workflows, systems, data, and people connect so she can identify where AI will strengthen the entire system, not just individual parts. You will know exactly what you are investing in, and why. No surprises.</p>
+    </div>
+    <div class="pcard">
+      <div class="pcard-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+      </div>
+      <div class="pcard-title">A Team That Stays With You</div>
+      <p class="pcard-body">Employees who are trained and supported as they step into a new way of working do not resist it. They own it. Susan's adoption phase is designed specifically to build that confidence so your investment delivers long after implementation is complete.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     AUTHORITY / ABOUT
+════════════════════════════════════════ -->
+<div class="about-split fade-up" id="about">
+  <div class="about-img-col">
+    <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
+    <div class="about-badge">
+      <strong>"The bridge between two worlds."</strong>
+      <span>AI Strategic Advisor · Calgary, AB</span>
+    </div>
+  </div>
+  <div class="about-txt">
+    <div class="stag">About Susan</div>
+    <h2 class="sh" style="margin-bottom:28px">20+ Years at the Intersection of <em>People, Systems, and Operations</em></h2>
+    <p>Susan Rabby is not a technologist who discovered people. She is a people and systems expert who spent two decades helping organizations grow and adapt from the inside.</p>
+    <p>Her corporate career spans Human Resources, Talent Management, systems training, and business analysis across major organizations in Canada's oil and gas, engineering, and rail sectors.</p>
+    <p>The pattern she saw consistently: technology implementations succeeded when people were supported and failed when they were not.</p>
+    <p>Early in her career, a hiring manager told Susan exactly why he wanted her for a Cost Analyst role. His department had two groups of people — one understood systems, the other understood processes. Both were capable, but they did not know how to communicate with each other. He needed someone who could sit between them, translate across the divide, and help both sides work together. He hired Susan for exactly that.</p>
+    <p>Susan has spent her entire career being the person people come to when technology feels overwhelming. Not because she makes it seem easy, but because she makes people feel capable. That is exactly what she brings to every AI engagement today.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CREDENTIALS
+════════════════════════════════════════ -->
+<section class="creds-section fade-up">
+  <div class="creds-head">
+    <div>
+      <div class="stag">Authority</div>
+      <h2 class="sh">Where People,<br><em>Systems, and<br>Operations Meet.</em></h2>
+    </div>
+    <p class="body-t">Susan is not a technologist who discovered people. She is a people and systems expert who spent two decades helping organizations grow and adapt from the inside. The pattern she saw consistently: technology implementations succeeded when people were supported — and failed when they were not.</p>
+  </div>
+  <div class="creds-grid">
+
+    <div class="cred-card" onclick="toggleCred(this)">
+      <div class="cred-card-top">
+        <div class="cred-num">BCom</div>
+        <div class="cred-top-right">
+          <div class="cred-title">Bachelor of Commerce Degree</div>
+        </div>
+        <div class="cred-toggle">+</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-body">Majoring in Human Resources and Organizational Effectiveness — the academic foundation for Susan's people-first methodology.</div>
+    </div>
+
+    <div class="cred-card" onclick="toggleCred(this)">
+      <div class="cred-card-top">
+        <div class="cred-num">20+</div>
+        <div class="cred-top-right">
+          <div class="cred-title">Years in Corporate HR &amp; Talent Management</div>
+        </div>
+        <div class="cred-toggle">+</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-body">20+ years in corporate HR, Talent Management, and systems training across oil and gas, engineering, and rail sectors in Canada.</div>
+    </div>
+
+    <div class="cred-card" onclick="toggleCred(this)">
+      <div class="cred-card-top">
+        <div class="cred-num">PSA</div>
+        <div class="cred-top-right">
+          <div class="cred-title">Licensed Senior Trainer</div>
+        </div>
+        <div class="cred-toggle">+</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-body">Licensed Senior Trainer, Peter Sage Academy. Certified in delivering transformational training that builds genuine capability and lasting adoption.</div>
+    </div>
+
+    <div class="cred-card" onclick="toggleCred(this)">
+      <div class="cred-card-top">
+        <div class="cred-num">AI×3</div>
+        <div class="cred-top-right">
+          <div class="cred-title">AI Certifications In Progress</div>
+        </div>
+        <div class="cred-toggle">+</div>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-body">AI Consultant Certification · AI Implementation Level 1 Certification · AI Data and Technical Foundations Level 1 Certification — all currently underway.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════ -->
+<section class="final-cta fade-up" id="contact">
+  <div>
+    <h2 class="sh">Ready to Have a<br><em>Real Conversation?</em></h2>
+    <p class="cta-desc">No pitch. No jargon. No pressure.<br><br>A 30-minute strategic conversation to evaluate where AI fits in your business and whether it's worth pursuing right now.</p>
+  </div>
+  <div>
+    <ul class="cta-list">
+      <li>Evaluate where AI fits in your business right now</li>
+      <li>Understand what a realistic roadmap looks like</li>
+      <li>Decide if Susan is the right partner — no obligation</li>
+      <li>Always happy to start the conversation</li>
+    </ul>
+    <a href="tel:14039938992" class="btn-mirage">Book Your Complimentary 30-Minute Call <span class="ico">→</span></a>
+    <p class="cta-meta">📞 1-403-993-8992<br>🔗 linkedin.com/in/susanrabby<br>AI Guidance Consulting Ltd. · Calgary, AB</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div>
+    <div class="foot-brand"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776767672/logo_i3eron.png" alt="Susan Rabby AI Guidance" style="height:28px;width:auto;display:block;opacity:0.75;filter:brightness(0) invert(1)"></div>
+    <p class="foot-tagline">Clear Guidance. Practical Solutions. Confident AI Adoption.<br>Always happy to start the conversation.</p>
+  </div>
+  <div class="foot-center">
+    <p>428-30 Auburn Bay St SE<br>Calgary, AB, Canada T3M 2M5</p>
+  </div>
+  <div>
+    <div class="foot-contact">
+      <p><a href="tel:14039938992">📞 1-403-993-8992</a></p>
+      <p><a href="https://linkedin.com/in/susanrabby" target="_blank">🔗 linkedin.com/in/susanrabby</a></p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Cookie Policy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ── Fade-up on scroll ──
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+}, { threshold: 0.07 })
+document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el))
+
+// ── Count-up animation ──
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4) }
+
+function animateCount(el) {
+  if (el.dataset.animated) return
+  el.dataset.animated = 'true'
+  const target = parseInt(el.dataset.count, 10)
+  const suffix = el.dataset.suffix || ''
+  const duration = 1600
+  const startDelay = parseInt(el.dataset.delay || 0, 10)
+  const start = performance.now() + startDelay
+
+  function tick(now) {
+    const elapsed = Math.max(0, now - start)
+    const progress = Math.min(elapsed / duration, 1)
+    const eased = easeOutQuart(progress)
+    const current = Math.round(eased * target)
+    el.textContent = current + suffix
+    if (progress < 1) requestAnimationFrame(tick)
+    else el.textContent = target + suffix
+  }
+  requestAnimationFrame(tick)
+}
+
+// Observe each counter element and fire when it enters the viewport
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCount(e.target)
+      countObs.unobserve(e.target)
+    }
+  })
+}, { threshold: 0.3 })
+
+document.querySelectorAll('[data-count]').forEach((el, i) => {
+  // Stagger each counter slightly for a cascade effect
+  el.dataset.delay = i * 120
+  countObs.observe(el)
+})
+
+// ── Credentials accordion ──
+function toggleCred(card) {
+  const isOpen = card.classList.contains('open')
+  document.querySelectorAll('.cred-card').forEach(c => c.classList.remove('open'))
+  if (!isOpen) card.classList.add('open')
+}
+
+// ── Framework accordion ──
+function toggleRow(row) {
+  const isOpen = row.classList.contains('open')
+  document.querySelectorAll('.num-row').forEach(r => r.classList.remove('open'))
+  if (!isOpen) row.classList.add('open')
+}
+
+;(function () {
+  const tabs = document.querySelectorAll('.dtab')
+  if (!tabs.length) return
+  const container = document.querySelector('.delivers-tabs')
+  if (!container) return
+
+  // Switch container to flexbox so flex values drive width expansion
+  container.style.display = 'flex'
+
+  const BASE = '1'
+  const ACTIVE = '2.2'
+
+  tabs.forEach((tab, idx) => {
+    tab.style.flex = BASE
+    tab.style.minWidth = '0'
+    tab.style.overflow = 'hidden'
+    tab.style.transition = 'flex 0.55s cubic-bezier(0.4,0,0.2,1)'
+
+    // Parallax mousemove
+    tab.addEventListener('mousemove', (e) => {
+      const r = tab.getBoundingClientRect()
+      const dx = (e.clientX - (r.left + r.width  / 2)) / r.width
+      const dy = (e.clientY - (r.top  + r.height / 2)) / r.height
+      const bg = tab.querySelector('.dtab-bg')
+      if (bg) bg.style.transform = `translate(${dx * 24}px, ${dy * 20}px) scale(1.07)`
+    })
+
+    // Reset parallax on leave
+    tab.addEventListener('mouseleave', () => {
+      const bg = tab.querySelector('.dtab-bg')
+      if (bg) {
+        bg.style.transition = 'transform 0.65s cubic-bezier(0.4,0,0.2,1)'
+        bg.style.transform = 'translate(0px,0px) scale(1)'
+        setTimeout(() => { bg.style.transition = '' }, 680)
+      }
+      tab.classList.remove('active')
+      tab.style.flex = BASE
+    })
+
+    // Expand on hover
+    tab.addEventListener('mouseenter', () => {
+      tabs.forEach((t, i) => {
+        t.style.flex = BASE
+        t.classList.remove('active')
+      })
+      tab.style.flex = ACTIVE
+      tab.classList.add('active')
+    })
+  })
+})()
+</script>
+</body>
+</html>

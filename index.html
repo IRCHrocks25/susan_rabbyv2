@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Susan Rabby — AI Guidance Consulting</title>
+<title>Susan Rabby — AI Strategic Advisor | Where People, Systems, and Operations Meet</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Syne:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -199,6 +199,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .stance-body-cols p:last-child{margin-bottom:0}
 .hardline{padding:16px 20px;border-left:3px solid var(--orange);background:rgba(255,91,4,0.08);font-size:16px;font-weight:500;color:rgba(255,255,255,1);line-height:1.7;margin-bottom:14px}
 .stance-final{font-size:16px;font-weight:500;color:rgba(255,255,255,1)!important}
+.stance-quote-attrib{font-size:clamp(16px,2vw,22px);font-family:'Syne',sans-serif;font-weight:400;letter-spacing:0.02em;color:rgba(255,255,255,0.55);display:block;margin-top:14px}
 
 /* ── FRAMEWORK ── */
 .framework-section{background:var(--white);padding:80px 0}
@@ -219,6 +220,42 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .num-row.open .row-body{max-height:400px;opacity:1;padding-bottom:36px}
 .row-tag{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(7,80,86,0.08);padding:5px 10px;border-radius:2px;align-self:start;margin-top:36px;white-space:nowrap;flex-shrink:0;transition:background .25s,color .25s}
 .num-row.open .row-tag{background:var(--orange);color:var(--white)}
+
+/* ── FRAMEWORK: circular system map (futuristic HUD, readable) ── */
+.framework-diagram-wrap{
+  width:100%;
+  box-sizing:border-box;
+  padding:32px var(--px) 52px;
+  border-bottom:1px solid var(--mirage-08);
+  display:flex;
+  justify-content:center;
+  background:radial-gradient(ellipse 85% 70% at 50% 35%, rgba(7,80,86,0.06) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(244,250,251,0.65) 100%);
+}
+.system-cycle-figure{
+  margin:0 auto;
+  width:min(420px,100%);
+  max-width:100%;
+  overflow:visible;
+}
+.system-cycle-figure svg{display:block;width:100%;height:auto}
+.system-cycle-figure .sc-orbit-static{fill:none;stroke:#16232A;stroke-opacity:0.07;stroke-width:1}
+.system-cycle-figure .sc-orbit-spin{fill:none;stroke:#075056;stroke-opacity:0.22;stroke-width:1;stroke-dasharray:6 14}
+.system-cycle-figure .sc-orbit-spin-rev{fill:none;stroke:#FF5B04;stroke-opacity:0.18;stroke-width:1;stroke-dasharray:3 10}
+.system-cycle-figure .sc-spoke{stroke:rgba(7,80,86,0.48);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-dasharray:4 7;opacity:0.92}
+.system-cycle-figure .sc-hub-disc{stroke-width:2.25}
+.system-cycle-figure .sc-hub-inner{fill:none;stroke:#fff;stroke-opacity:0.5;stroke-width:1.1}
+.system-cycle-figure .sc-hub{font-family:'Fraunces',serif;font-size:14px;font-weight:300;letter-spacing:-0.02em;fill:#16232A}
+.system-cycle-figure .sc-hub-sub{font-family:'Fraunces',serif;font-size:14px;font-weight:300;letter-spacing:-0.02em;fill:#075056;opacity:0.88}
+.system-cycle-figure .sc-sat{fill:rgba(255,255,255,0.95);stroke:rgba(7,80,86,0.4);stroke-width:1.15}
+.system-cycle-figure .sc-sat-text{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;fill:#16232A}
+.system-cycle-figure .sc-step{fill:rgba(255,255,255,0.93);stroke:rgba(22,35,42,0.1);stroke-width:1}
+.system-cycle-figure .sc-step-text{font-family:'Syne',sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;fill:#16232A;opacity:0.75}
+.system-cycle-figure .sc-line{stroke:rgba(7,80,86,0.5);stroke-width:2.25;fill:none;stroke-linecap:round;opacity:0.95}
+.system-cycle-figure .sc-line-glow{stroke:rgba(255,91,4,0.22);stroke-width:5;fill:none;stroke-linecap:round;opacity:0.85}
+.system-cycle-figure .sc-node{fill:#075056}
+.system-cycle-figure .sc-out-fill{stroke-width:1.35}
+.system-cycle-figure .sc-out-text{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:none;fill:#053f43}
 
 /* ── PRACTICE ── */
 .practice-section{background:var(--sand);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
@@ -280,7 +317,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
   margin-top:0;
   transition:max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s ease .05s, margin .3s ease;
 }
-.cred-card.open .cred-body{max-height:160px;opacity:1;margin-top:20px}
+.cred-card.open .cred-body{max-height:280px;opacity:1;margin-top:20px}
 .cred-divider{width:100%;height:1px;background:var(--mirage-08);margin:16px 0 0;opacity:0;transition:opacity .3s ease .05s}
 .cred-card.open .cred-divider{opacity:1}
 
@@ -368,6 +405,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   <a href="#" class="nav-logo"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776767672/logo_i3eron.png" alt="Susan Rabby AI Guidance" style="height:32px;width:auto;display:block"></a>
   <ul class="nav-links">
     <li><a href="#stats">Approach</a></li>
+    <li><a href="#authority">Authority</a></li>
     <li><a href="#framework">Framework</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-btn">Book a Call ↗</a></li>
@@ -379,7 +417,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 ════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-top fade-up">
-      <div class="hero-label">AI Strategic Advisor · Service Businesses</div>
+      <div class="hero-label">AI Strategic Advisor | Where People, Systems, and Operations Meet</div>
       <h1 class="hero-h1">Practical AI for<br>Service Businesses<br>That Put Their <em>People First.</em></h1>
       <p class="hero-right-top">The businesses getting real results from AI are thinking differently. They think holistically.</p>
       <p class="hero-desc">Susan Rabby helps service businesses implement AI in ways that align with their entire operation, so improvements are sustainable, measurable, and embraced by the people doing the work.</p>
@@ -416,7 +454,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="stag">Statistics &amp; Threat Validation</div>
       <h2 class="sh">Most AI Projects Fail.<br>The Reason Is Not<br><em>the Technology.</em></h2>
     </div>
-    <p class="body-t">The numbers are hard to ignore. The pattern is consistent across every study. AI fails not because the tools are broken. It fails because businesses skip the foundational work: understanding how their operations actually run, designing a strategy that aligns with measurable goals, and preparing the people expected to do the work.</p>
+    <p class="body-t"><strong>The numbers are hard to ignore:</strong></p>
   </div>
   <div class="stats-row">
     <div class="sitem">
@@ -435,7 +473,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <p class="sitem-src">Wiley Workplace Intelligence Report</p>
     </div>
   </div>
-  <p class="stats-note">Moving fast without a plan is not a strategy. <strong>It is a cost.</strong></p>
+  <p class="stats-note">The pattern is consistent across every study. AI fails not because the tools are broken. It fails because businesses skip the foundational work: understanding how their operations actually run, designing a strategy that aligns with measurable goals, and preparing the people expected to do the work.<br><br>Moving fast without a plan is not a strategy. <strong>It is a cost.</strong></p>
 </section>
 
 <!-- ═══════════════════════════════════════
@@ -477,7 +515,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="stag">What the Right Approach Delivers</div>
       <h2 class="sh">Here Is What the<br>Right Approach<br><em>Delivers</em></h2>
     </div>
-    <p class="delivers-intro">When AI is introduced correctly, the results are specific and measurable. This is what Susan's process is designed to deliver. And it starts long before anything is implemented.</p>
+    <p class="delivers-intro">When AI is introduced correctly, the results are specific and measurable. You move forward with a clear roadmap, not a guess or a gamble. Your teams adopt new ways of working with confidence because they were supported, not blindsided by it. Your teams spend less time on repetitive manual tasks and more time on work that drives revenue. This is what Susan's process is designed to deliver. And it starts long before anything is implemented.</p>
   </div>
 
   <div class="delivers-tabs">
@@ -494,7 +532,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>Direction</div>
         <div class="dtab-num">01</div>
         <div class="dtab-title">A Clear<br>Roadmap</div>
-        <div class="dtab-body">You move forward with a clear roadmap, not a guess or a gamble. Every recommendation is grounded in your specific goals, workflows, systems, and people. No surprises at any stage.</div>
+        <div class="dtab-body">You move forward with a clear roadmap, not a guess or a gamble.</div>
         <div class="dtab-arrow">→</div>
       </div>
     </div>
@@ -511,7 +549,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>People</div>
         <div class="dtab-num">02</div>
         <div class="dtab-title">A Team<br>That Stays</div>
-        <div class="dtab-body">Your teams adopt new ways of working with confidence because they were supported, not blindsided by it. Employees who are trained and supported don't resist change — they own it.</div>
+        <div class="dtab-body">Your teams adopt new ways of working with confidence because they were supported, not blindsided by it.</div>
         <div class="dtab-arrow">→</div>
       </div>
     </div>
@@ -528,7 +566,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>Output</div>
         <div class="dtab-num">03</div>
         <div class="dtab-title">Time for<br>Revenue Work</div>
-        <div class="dtab-body">Your teams spend less time on repetitive manual tasks and more time on work that drives revenue. Friction removed, capacity created — that is the operational advantage AI is designed to deliver.</div>
+        <div class="dtab-body">Your teams spend less time on repetitive manual tasks and more time on work that drives revenue.</div>
         <div class="dtab-arrow">→</div>
       </div>
     </div>
@@ -545,7 +583,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   <div class="stance-header">
     <div>
       <div class="stag stag-orange">The Hard Stance</div>
-      <h2 class="sh sh-white">AI is an <em>Assistant.</em><br>Not a Replacement.</h2>
+      <h2 class="sh sh-white">&ldquo;Don't Invest in AI Until You Know <em>WHY.</em>&rdquo;<span class="stance-quote-attrib">&mdash; Susan Rabby</span></h2>
     </div>
     <div class="hardline">If your goal is to use AI to eliminate people, she is not the right fit for you. Full stop.</div>
   </div>
@@ -571,9 +609,96 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   <div class="framework-head">
     <div>
       <div class="stag">The Framework</div>
-      <h2 class="sh">A Structured Path.<br>In <em>Order. Every Time.</em></h2>
+      <h2 class="sh">A Structured <em>Path.</em></h2>
     </div>
     <p class="body-t">Susan's process follows three steps, conducted in order, every time.</p>
+  </div>
+
+  <div class="framework-diagram-wrap">
+    <figure class="system-cycle-figure">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -36 408 432" overflow="visible" aria-labelledby="scTitle">
+        <title id="scTitle">Your business system at the centre, with Data, People, and Technology feeding in, then Workflows and AI Opportunities leading to Business Value.</title>
+        <defs>
+          <linearGradient id="sc-panel-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f5fcfc"/>
+            <stop offset="40%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#faf7f4"/>
+          </linearGradient>
+          <pattern id="sc-dots" width="16" height="16" patternUnits="userSpaceOnUse">
+            <circle cx="2.2" cy="2.2" r="0.65" fill="#16232A" opacity="0.06"/>
+          </pattern>
+          <radialGradient id="sc-hub-rad" cx="36%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#eef9fa"/>
+            <stop offset="100%" stop-color="#d8eef0"/>
+          </radialGradient>
+          <linearGradient id="sc-hub-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#075056" stop-opacity="0.75"/>
+            <stop offset="42%" stop-color="#FF5B04" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#075056" stop-opacity="0.8"/>
+          </linearGradient>
+          <linearGradient id="sc-out-grad" x1="15%" y1="0%" x2="85%" y2="100%">
+            <stop offset="0%" stop-color="#ecf8f9"/>
+            <stop offset="100%" stop-color="#d2ecef"/>
+          </linearGradient>
+          <filter id="sc-out-glow" x="-50%" y="-55%" width="200%" height="210%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/>
+            <feFlood flood-color="#075056" flood-opacity="0.4" result="f"/>
+            <feComposite in="f" in2="b" operator="in" result="g"/>
+            <feMerge>
+              <feMergeNode in="g"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <marker id="sc-arrow" viewBox="0 0 6 6" refX="3" refY="6" markerWidth="5.5" markerHeight="5.5" orient="auto">
+            <path d="M0 0 L6 3 L0 6 Z" fill="#075056"/>
+          </marker>
+        </defs>
+        <rect x="-44" y="-36" width="408" height="432" rx="22" fill="url(#sc-panel-bg)"/>
+        <rect x="-44" y="-36" width="408" height="432" rx="22" fill="url(#sc-dots)" opacity="0.55"/>
+        <!-- slow HUD rings -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="0 160 148" to="360 160 148" dur="88s" repeatCount="indefinite"/>
+          <circle class="sc-orbit-spin" cx="160" cy="148" r="118"/>
+        </g>
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="360 160 148" to="0 160 148" dur="64s" repeatCount="indefinite"/>
+          <circle class="sc-orbit-spin-rev" cx="160" cy="148" r="100"/>
+        </g>
+        <circle class="sc-orbit-static" cx="160" cy="148" r="108"/>
+        <!-- spokes -->
+        <line class="sc-spoke" x1="160" y1="56" x2="160" y2="76"/>
+        <line class="sc-spoke" x1="104" y1="148" x2="88" y2="148"/>
+        <line class="sc-spoke" x1="216" y1="148" x2="232" y2="148"/>
+        <!-- hub -->
+        <circle class="sc-hub-disc" cx="160" cy="148" r="72" fill="url(#sc-hub-rad)" stroke="url(#sc-hub-ring)"/>
+        <circle class="sc-hub-inner" cx="160" cy="148" r="66"/>
+        <text class="sc-hub" x="160" y="142" text-anchor="middle">Your business</text>
+        <text class="sc-hub-sub" x="160" y="160" text-anchor="middle">system</text>
+        <!-- satellites -->
+        <rect class="sc-sat" x="124" y="28" width="72" height="28" rx="8"/>
+        <text class="sc-sat-text" x="160" y="46" text-anchor="middle">[ Data ]</text>
+        <rect class="sc-sat" x="18" y="134" width="86" height="30" rx="8"/>
+        <text class="sc-sat-text" x="61" y="153" text-anchor="middle">[ People ]</text>
+        <rect class="sc-sat" x="216" y="134" width="86" height="30" rx="8"/>
+        <text class="sc-sat-text" x="259" y="153" text-anchor="middle">[ Technology ]</text>
+        <!-- pipeline: soft glow then crisp line -->
+        <line class="sc-line-glow" x1="160" y1="220" x2="160" y2="236"/>
+        <line class="sc-line" x1="160" y1="220" x2="160" y2="236"/>
+        <circle class="sc-node" cx="160" cy="236" r="3.2"/>
+        <rect class="sc-step" x="76" y="238" width="168" height="28" rx="8"/>
+        <text class="sc-step-text" x="160" y="256" text-anchor="middle">[ Workflows ]</text>
+        <line class="sc-line-glow" x1="160" y1="266" x2="160" y2="280"/>
+        <line class="sc-line" marker-end="url(#sc-arrow)" x1="160" y1="266" x2="160" y2="280"/>
+        <circle class="sc-node" cx="160" cy="280" r="3.2"/>
+        <rect class="sc-step" x="52" y="282" width="216" height="28" rx="8"/>
+        <text class="sc-step-text" x="160" y="300" text-anchor="middle">[ AI Opportunities ]</text>
+        <line class="sc-line-glow" x1="160" y1="310" x2="160" y2="326"/>
+        <line class="sc-line" marker-end="url(#sc-arrow)" x1="160" y1="310" x2="160" y2="326"/>
+        <rect class="sc-out-fill" x="44" y="328" width="232" height="32" rx="16" fill="url(#sc-out-grad)" stroke="#075056" filter="url(#sc-out-glow)"/>
+        <text class="sc-out-text" x="160" y="346" text-anchor="middle">Business Value</text>
+      </svg>
+    </figure>
   </div>
 
   <div class="num-row open" onclick="toggleRow(this)">
@@ -622,7 +747,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="stag">What This Looks Like in Practice</div>
       <h2 class="sh">What This Looks<br>Like <em>in Practice</em></h2>
     </div>
-    <p class="body-t">Every recommendation Susan makes is grounded in understanding your business goals, operational priorities, and current challenges — then mapping how your workflows, systems, data, and people connect.</p>
+    <p class="body-t">Clarity on what to invest in, and why. Confidence in the people who will carry it forward.</p>
   </div>
   <div class="practice-grid">
     <div class="pcard">
@@ -643,38 +768,21 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 </section>
 
 <!-- ═══════════════════════════════════════
-     AUTHORITY / ABOUT
+     AUTHORITY
 ════════════════════════════════════════ -->
-<div class="about-split fade-up" id="about">
-  <div class="about-img-col">
-    <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
-    <div class="about-badge">
-      <strong>"The bridge between two worlds."</strong>
-      <span>AI Strategic Advisor · Calgary, AB</span>
-    </div>
-  </div>
-  <div class="about-txt">
-    <div class="stag">About Susan</div>
-    <h2 class="sh" style="margin-bottom:28px">20+ Years at the Intersection of <em>People, Systems, and Operations</em></h2>
-    <p>Susan Rabby is not a technologist who discovered people. She is a people and systems expert who spent two decades helping organizations grow and adapt from the inside.</p>
-    <p>Her corporate career spans Human Resources, Talent Management, systems training, and business analysis across major organizations in Canada's oil and gas, engineering, and rail sectors.</p>
-    <p>The pattern she saw consistently: technology implementations succeeded when people were supported and failed when they were not.</p>
-    <p>Early in her career, a hiring manager told Susan exactly why he wanted her for a Cost Analyst role. His department had two groups of people — one understood systems, the other understood processes. Both were capable, but they did not know how to communicate with each other. He needed someone who could sit between them, translate across the divide, and help both sides work together. He hired Susan for exactly that.</p>
-    <p>Susan has spent her entire career being the person people come to when technology feels overwhelming. Not because she makes it seem easy, but because she makes people feel capable. That is exactly what she brings to every AI engagement today.</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     CREDENTIALS
-════════════════════════════════════════ -->
-<section class="creds-section fade-up">
+<section class="creds-section fade-up" id="authority">
   <div class="creds-head">
     <div>
       <div class="stag">Authority</div>
-      <h2 class="sh">Where People,<br><em>Systems, and<br>Operations Meet.</em></h2>
+      <h2 class="sh">20+ Years at the Intersection of <em>People, Systems, and Operations</em></h2>
     </div>
-    <p class="body-t">Susan is not a technologist who discovered people. She is a people and systems expert who spent two decades helping organizations grow and adapt from the inside. The pattern she saw consistently: technology implementations succeeded when people were supported — and failed when they were not.</p>
+    <div>
+      <p class="body-t" style="margin-bottom:1rem">Susan Rabby is not a technologist who discovered people. She is a people and systems expert who spent two decades helping organizations grow and adapt from the inside.</p>
+      <p class="body-t" style="margin-bottom:1rem">Her corporate career spans Human Resources, Talent Management, systems training, and business analysis across major organizations in Canada's oil and gas, engineering, and rail sectors.</p>
+      <p class="body-t">The pattern she saw consistently: technology implementations succeeded when people were supported and failed when they were not.</p>
+    </div>
   </div>
+  <p class="body-t" style="margin:-32px 0 40px;font-weight:600;color:var(--mirage)">Credentials:</p>
   <div class="creds-grid">
 
     <div class="cred-card" onclick="toggleCred(this)">
@@ -686,47 +794,72 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
         <div class="cred-toggle">+</div>
       </div>
       <div class="cred-divider"></div>
-      <div class="cred-body">Majoring in Human Resources and Organizational Effectiveness — the academic foundation for Susan's people-first methodology.</div>
+      <div class="cred-body">Bachelor of Commerce Degree, majoring in Human Resources and Organizational Effectiveness.</div>
     </div>
 
     <div class="cred-card" onclick="toggleCred(this)">
       <div class="cred-card-top">
         <div class="cred-num">20+</div>
         <div class="cred-top-right">
-          <div class="cred-title">Years in Corporate HR &amp; Talent Management</div>
+          <div class="cred-title">Corporate HR, Talent &amp; Systems</div>
         </div>
         <div class="cred-toggle">+</div>
       </div>
       <div class="cred-divider"></div>
-      <div class="cred-body">20+ years in corporate HR, Talent Management, and systems training across oil and gas, engineering, and rail sectors in Canada.</div>
+      <div class="cred-body">20+ years in corporate HR, Talent Management, and systems training.</div>
     </div>
 
     <div class="cred-card" onclick="toggleCred(this)">
       <div class="cred-card-top">
         <div class="cred-num">PSA</div>
         <div class="cred-top-right">
-          <div class="cred-title">Licensed Senior Trainer</div>
+          <div class="cred-title">Licensed Senior Trainer, Peter Sage Academy</div>
         </div>
         <div class="cred-toggle">+</div>
       </div>
       <div class="cred-divider"></div>
-      <div class="cred-body">Licensed Senior Trainer, Peter Sage Academy. Certified in delivering transformational training that builds genuine capability and lasting adoption.</div>
+      <div class="cred-body">Licensed Senior Trainer, Peter Sage Academy.</div>
     </div>
 
     <div class="cred-card" onclick="toggleCred(this)">
       <div class="cred-card-top">
-        <div class="cred-num">AI×3</div>
+        <div class="cred-num">AI</div>
         <div class="cred-top-right">
-          <div class="cred-title">AI Certifications In Progress</div>
+          <div class="cred-title">AI certifications (in progress)</div>
         </div>
         <div class="cred-toggle">+</div>
       </div>
       <div class="cred-divider"></div>
-      <div class="cred-body">AI Consultant Certification · AI Implementation Level 1 Certification · AI Data and Technical Foundations Level 1 Certification — all currently underway.</div>
+      <div class="cred-body">AI Consultant Certification [in progress]<br>AI Implementation Level 1 Certification [in progress]<br>AI Data and Technical Foundations Level 1 Certification [in progress]</div>
     </div>
 
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT SUSAN
+════════════════════════════════════════ -->
+<div class="about-split fade-up" id="about">
+  <div class="about-img-col">
+    <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
+    <div class="about-badge">
+      <strong>&ldquo;The bridge between two worlds.&rdquo;</strong>
+      <span>AI Strategic Advisor · Calgary, AB</span>
+    </div>
+  </div>
+  <div class="about-txt">
+    <div class="stag">About Susan</div>
+    <h2 class="sh" style="margin-bottom:28px">The Bridge Between <em>Two Worlds</em></h2>
+    <p>Early in her career, a hiring manager told Susan exactly why he wanted her for a Cost Analyst role in a large oil and gas company in their major projects division.</p>
+    <p>His department had two groups of people. One group understood systems. The other understood processes. Both were capable, but they did not know how to communicate well with each other. He needed someone who could sit between them, translate across the divide, and help both sides work together.</p>
+    <p>He hired Susan for exactly that.</p>
+    <p>That same quality showed up long before that moment.</p>
+    <p>Years earlier, when her office rolled out a new CRM system, most of her senior colleagues were lost. One of them, a veteran of the business, quietly appeared at her office door. He peeked in, a little sheepish, and said: &ldquo;Susan, can you help me with all that stuff we covered in the session? I don&rsquo;t get it.&rdquo;</p>
+    <p>She helped him. As she always had. As she always does.</p>
+    <p>Susan has spent her entire career being the person people come to when technology feels overwhelming. Not because she makes it seem easy, but because she makes people feel capable. That is exactly what she brings to every AI engagement today.</p>
+    <div class="problem-close" style="margin-top:28px;font-style:italic">&ldquo;Watching people grow when someone believed in them left a lasting impression on me, and it shapes how I approach technology adoption today.&rdquo; &mdash; Susan Rabby</div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
      FINAL CTA
@@ -734,15 +867,9 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 <section class="final-cta fade-up" id="contact">
   <div>
     <h2 class="sh">Ready to Have a<br><em>Real Conversation?</em></h2>
-    <p class="cta-desc">No pitch. No jargon. No pressure.<br><br>A 30-minute strategic conversation to evaluate where AI fits in your business and whether it's worth pursuing right now.</p>
+    <p class="cta-desc">No pitch. No jargon. No pressure.<br><br>A 30-minute strategic conversation to evaluate where AI fits in your business and whether it&rsquo;s worth pursuing right now.</p>
   </div>
   <div>
-    <ul class="cta-list">
-      <li>Evaluate where AI fits in your business right now</li>
-      <li>Understand what a realistic roadmap looks like</li>
-      <li>Decide if Susan is the right partner — no obligation</li>
-      <li>Always happy to start the conversation</li>
-    </ul>
     <a href="tel:14039938992" class="btn-mirage">Book Your Complimentary 30-Minute Call <span class="ico">→</span></a>
     <p class="cta-meta">📞 1-403-993-8992<br>🔗 linkedin.com/in/susanrabby<br>AI Guidance Consulting Ltd. · Calgary, AB</p>
   </div>
@@ -757,7 +884,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
     <p class="foot-tagline">Clear Guidance. Practical Solutions. Confident AI Adoption.<br>Always happy to start the conversation.</p>
   </div>
   <div class="foot-center">
-    <p>428-30 Auburn Bay St SE<br>Calgary, AB, Canada T3M 2M5</p>
+    <p>AI Guidance Consulting Ltd.<br>428-30 Auburn Bay St SE<br>Calgary, AB, Canada T3M 2M5</p>
   </div>
   <div>
     <div class="foot-contact">

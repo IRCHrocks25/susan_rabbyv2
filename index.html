@@ -51,8 +51,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .hero-stats{display:none}
 
 /* ── SHARED ── */
-.stag{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mirage-50);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.stag::before{content:'';display:block;width:20px;height:1px;background:currentColor}
+.stag{display:none}
 .stag-light{color:rgba(255,255,255,0.4)}
 .stag-light::before{background:rgba(255,255,255,0.4)}
 .stag-orange{color:var(--orange)}
@@ -64,7 +63,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .body-t{font-size:18px;font-weight:400;color:var(--mirage-50);line-height:1.85}
 .body-t-light{color:rgba(255,255,255,0.45)}
 
-/* ── STATS LIGHT ── */
+/* ── STATS ── */
 .stats-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
 .stats-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;padding-bottom:56px;border-bottom:1px solid var(--mirage-08);margin-bottom:56px}
 .stats-why{font-size:18px;color:var(--mirage);line-height:1.75}
@@ -72,18 +71,17 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .stats-why ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .stats-why ul li{font-size:18px;color:var(--mirage-50);line-height:1.65;padding-left:18px;position:relative}
 .stats-why ul li::before{content:'—';position:absolute;left:0;color:var(--orange)}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.sitem{padding:0 48px 0 0;border-right:1px solid var(--mirage-08);display:flex;flex-direction:column;align-items:flex-start}
-.sitem:first-child{padding-left:0}
-.sitem:nth-child(2){padding:0 48px}
-.sitem:last-child{border-right:none;padding-right:0;padding-left:48px;align-items:flex-start}
+
+/* CHANGE 1: Stats row — centered across full width */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;justify-items:center}
+.sitem{padding:0 48px;display:flex;flex-direction:column;align-items:center;text-align:center;border-right:1px solid var(--mirage-08)}
+.sitem:first-child{padding-left:0;align-items:center}
+.sitem:last-child{border-right:none;padding-right:0;align-items:center}
 .snum{font-family:'Fraunces',serif;font-size:52px;font-weight:300;line-height:1;color:var(--teal);letter-spacing:-0.03em;margin-bottom:10px}
-.sdesc{font-size:16px;color:var(--mirage-50);line-height:1.65;max-width:200px;text-align:left}
-.sitem-src{font-size:13px;color:var(--mirage-20);margin-top:6px;font-style:italic;text-align:left}
+.sdesc{font-size:16px;color:var(--mirage-50);line-height:1.65;max-width:200px;text-align:center}
+.sitem-src{font-size:13px;color:var(--mirage-20);margin-top:6px;font-style:italic;text-align:center}
 .stats-note{margin-top:52px;padding:24px 32px;border-left:3px solid var(--orange);background:var(--sand);font-size:21px;font-weight:500;color:var(--mirage);line-height:1.6}
 .stats-note strong{color:var(--orange);font-weight:600}
-/* Hide all small section tag labels globally */
-.stag{display:none}
 
 /* ── PROBLEM ── */
 .problem-section{background:var(--sand);border-top:1px solid var(--mirage-08);display:grid;grid-template-columns:1fr 1fr}
@@ -98,10 +96,40 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .problem-clarity{padding:24px 28px;background:var(--mirage);border-radius:2px;text-align:center}
 .problem-clarity p{font-size:18px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.65;margin-bottom:6px}
 .problem-clarity strong{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--white);letter-spacing:-0.01em}
-.problem-close{display:none}
-.problem-quotes-stack{display:none}
 .problem-right{position:relative;overflow:hidden}
-.problem-right img{width:100%;height:100%;object-fit:cover;display:block;min-height:unset!important}
+.problem-right img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ── FRAMEWORK ── */
+/* CHANGE 2: Remove period from title, restructure layout */
+.framework-section{background:var(--white);padding:80px 0;border-top:1px solid var(--mirage-08)}
+.framework-head{padding:0 var(--px) 48px}
+
+/* New two-column framework layout */
+.framework-body{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--mirage-08)}
+.framework-col-left{padding:40px var(--px) 40px var(--px);border-right:1px solid var(--mirage-08)}
+.framework-col-right{padding:0}
+
+/* Step 1 in left column — prominent */
+.framework-step-main{display:flex;flex-direction:column;height:100%}
+.framework-step-main .row-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--orange);padding:6px 12px;border-radius:2px;align-self:flex-start;margin-bottom:20px;white-space:nowrap}
+.framework-step-main .row-title{font-size:26px;font-weight:600;color:var(--mirage);line-height:1.3;margin-bottom:16px}
+.framework-step-main .row-body{font-size:18px;color:var(--mirage-50);line-height:1.8}
+.framework-step-main .row-body p{margin-bottom:14px}
+.framework-step-main .row-body p:last-child{margin-bottom:0}
+.framework-step-main .row-body strong{color:var(--mirage);font-weight:600}
+
+/* Steps 2 & 3 stacked in right column */
+.framework-step-minor{padding:40px var(--px) 40px var(--px);border-bottom:1px solid var(--mirage-08)}
+.framework-step-minor:last-child{border-bottom:none}
+.framework-step-minor .row-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--orange);padding:6px 12px;border-radius:2px;display:inline-block;margin-bottom:16px;white-space:nowrap}
+.framework-step-minor .row-title{font-size:22px;font-weight:600;color:var(--mirage);line-height:1.3;margin-bottom:12px}
+.framework-step-minor .row-body{font-size:18px;color:var(--mirage-50);line-height:1.8}
+.framework-step-minor .row-body strong{color:var(--mirage);font-weight:600}
+
+/* CHANGE 3: Transition banner between Framework and Delivers */
+.framework-transition{background:var(--mirage);padding:36px var(--px);text-align:center;border-top:1px solid rgba(255,255,255,0.07)}
+.framework-transition p{font-family:'Fraunces',serif;font-size:clamp(22px,2.8vw,34px);font-weight:300;font-style:italic;color:var(--white);letter-spacing:-0.01em;line-height:1.3}
+.framework-transition p strong{font-style:normal;font-weight:300;color:var(--orange)}
 
 /* ── DELIVERS ── */
 .delivers-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
@@ -114,9 +142,10 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .dtab-bg-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .dtab-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,35,42,0.45) 0%,rgba(22,35,42,0.85) 100%);z-index:1}
 .dtab-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 28px}
+/* CHANGE 4: keep tags, remove numbers */
 .dtab-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,1);margin-bottom:12px}
 .dtab-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
-.dtab-num{font-family:'Fraunces',serif;font-size:15px;font-weight:300;color:rgba(255,255,255,1);letter-spacing:.06em;margin-bottom:8px}
+.dtab-num{display:none} /* CHANGE 4: hide numbers */
 .dtab-title{font-family:'Fraunces',serif;font-size:clamp(21px,2.3vw,28px);font-weight:300;color:var(--white);line-height:1.2;letter-spacing:-0.01em;margin-bottom:12px}
 .dtab-body{font-size:16px;color:rgba(255,255,255,1);line-height:1.75}
 .dtab-arrow{display:none}
@@ -126,73 +155,47 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .stance::before{content:'';position:absolute;inset:0;background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776761211/43f2fb697ddb0b606dfc56e1e29c4cf8_LE_upscale_prime_su3vxf.jpg') center center / cover no-repeat;z-index:0;opacity:.18}
 .stance > *{position:relative;z-index:1}
 .stance-header{padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:48px}
-.stance-subtitle{font-size:20px;font-weight:600;color:rgba(255,255,255,1);line-height:1.55;margin-top:20px;max-width:680px}
+/* CHANGE 5: subtitle moved inside two-column body, not spanning full width */
+.stance-subtitle{display:none}
 .stance-body-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .stance-body-cols p{font-size:18px;color:rgba(255,255,255,1);line-height:1.85;margin-bottom:14px}
 .stance-body-cols p:last-child{margin-bottom:0}
+/* New: subtitle as first element in left column */
+.stance-col-subtitle{font-size:20px;font-weight:600;color:rgba(255,255,255,1);line-height:1.55;margin-bottom:20px}
 .hardline{display:none}
 .stance-final{font-size:16px;font-weight:700;color:rgba(255,255,255,1)!important;text-transform:uppercase;letter-spacing:.12em}
-
-/* ── FRAMEWORK ── */
-.framework-section{background:var(--white);padding:80px 0}
-.framework-head{padding:0 var(--px) 48px}
-.num-row{border-top:1px solid var(--mirage-08);display:grid;grid-template-columns:72px auto 1fr;align-items:start;padding:0 var(--px)}
-.num-row:last-child{border-bottom:1px solid var(--mirage-08)}
-.row-n{font-family:'Fraunces',serif;font-size:15px;font-weight:300;color:var(--mirage-20);padding:32px 0;border-right:1px solid var(--mirage-08);display:flex;align-items:flex-start;letter-spacing:.04em}
-.row-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--orange);padding:6px 12px;border-radius:2px;align-self:start;margin-top:32px;margin-left:20px;white-space:nowrap;flex-shrink:0}
-.row-content{padding:0 0 0 20px}
-.row-header{display:flex;align-items:center;gap:16px;padding:30px 0 16px}
-.row-title{font-size:22px;font-weight:600;color:var(--mirage);line-height:1.3}
-.row-toggle{display:none}
-.row-body{font-size:18px;color:var(--mirage-50);line-height:1.8;max-width:580px;padding-bottom:36px}
-.row-body p{margin-bottom:14px}
-.row-body p:last-child{margin-bottom:0}
-.row-body strong{color:var(--mirage);font-weight:600}
 
 /* ── PRACTICE ── */
 .practice-section{background:var(--sand);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
 .practice-head{margin-bottom:48px}
 .practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mirage-08)}
 .pcard{background:var(--white);padding:40px 36px}
-.pcard-icon{display:none}
 .pcard-title{font-size:22px;font-weight:600;color:var(--mirage);margin-bottom:14px;letter-spacing:.01em}
 .pcard-body{font-size:18px;color:var(--mirage-50);line-height:1.85}
 
 /* ── ABOUT SPLIT ── */
-.about-split{background:var(--white);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--mirage-08);align-items:stretch}
-.about-img-col{position:relative;overflow:hidden;background:var(--teal);border-right:1px solid var(--mirage-08)}
-.about-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.about-img-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--teal);position:relative}
-.about-geo{position:absolute;inset:0;opacity:.12;pointer-events:none}
-.about-badge{position:absolute;bottom:28px;left:28px;background:var(--orange);color:var(--white);padding:18px 22px;border-radius:2px;max-width:220px}
-.about-badge strong{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:300;font-style:italic;margin-bottom:4px;line-height:1.3}
-.about-badge span{font-size:14px;opacity:.8}
+/* CHANGE 6: image aligns to bottom of text; credentials as list */
+.about-split{background:var(--white);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--mirage-08);align-items:end}
+.about-img-col{position:relative;overflow:hidden;background:var(--teal);border-right:1px solid var(--mirage-08);display:flex;align-items:flex-end}
+.about-img-col img{width:100%;display:block;object-fit:cover;object-position:center top}
 .about-txt{padding:64px 56px}
-.about-initials{width:68px;height:68px;border-radius:50%;background:var(--sand);border:1px solid var(--sand-dark);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:23px;color:var(--teal);margin-bottom:28px}
 .about-txt .sh{margin-bottom:24px}
 .about-txt p{font-size:18px;color:var(--mirage-50);line-height:1.85;margin-bottom:1rem}
 
-/* ── CREDENTIALS (light interactive) ── */
-.creds-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
-.creds-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
-.creds-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mirage-08)}
-.cred-card{background:var(--sand);padding:40px 36px}
-.cred-card-top{display:flex;align-items:flex-start;gap:16px}
-.cred-num{font-family:'Fraunces',serif;font-size:51px;font-weight:300;color:var(--teal);letter-spacing:-0.02em;line-height:1}
-.cred-top-right{flex:1;padding-top:6px}
-.cred-title{font-size:17px;font-weight:600;color:var(--mirage);margin-bottom:0;line-height:1.4}
-.cred-toggle{display:none}
-.cred-body{font-size:18px;color:var(--mirage-50);line-height:1.75;margin-top:20px}
-.cred-divider{width:100%;height:1px;background:var(--mirage-08);margin:16px 0 0}
-
-/* ── MINI CREDENTIALS ── */
+/* Mini credentials as list format */
 .mini-creds{margin-top:36px;padding-top:28px;border-top:1px solid var(--mirage-08)}
 .mini-creds-title{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mirage-50);margin-bottom:20px}
-.mini-creds-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px}
-.mini-cred-label{font-size:16px;font-weight:600;color:var(--mirage);margin-bottom:6px}
-.mini-cred-text{font-size:16px;color:var(--mirage-50);line-height:1.7}
+.mini-creds-list{display:flex;flex-direction:column;gap:0;list-style:none}
+.mini-creds-list li{padding:14px 0;border-bottom:1px solid var(--mirage-08);display:flex;gap:16px;align-items:baseline}
+.mini-creds-list li:last-child{border-bottom:none}
+.mini-cred-label{font-size:14px;font-weight:600;color:var(--mirage);white-space:nowrap;min-width:160px;flex-shrink:0}
+.mini-cred-text{font-size:15px;color:var(--mirage-50);line-height:1.65}
+/* AI certs as sub-list */
+.mini-cred-sublist{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:2px}
+.mini-cred-sublist li{font-size:15px;color:var(--mirage-50);line-height:1.65;padding-left:14px;position:relative}
+.mini-cred-sublist li::before{content:'·';position:absolute;left:0;color:var(--orange)}
 
-
+/* ── FINAL CTA ── */
 .final-cta{
   position:relative;
   padding:60px var(--px);
@@ -210,15 +213,12 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .cta-desc{font-size:20px;font-weight:400;color:var(--mirage);line-height:1.75;max-width:640px;margin-bottom:28px}
 .btn-mirage{display:inline-flex;align-items:center;gap:10px;background:var(--mirage);color:var(--white);padding:15px 28px;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;width:fit-content;margin-bottom:24px}
 .btn-mirage:hover{background:var(--orange)}
-.btn-mirage .ico{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:10px}
-.cta-meta{font-size:16px;color:var(--mirage-50);line-height:1.9}
 .btn-mirage .ico{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:12px}
 .cta-meta{font-size:14px;color:var(--mirage-50);margin-top:12px;line-height:1.7}
 
 /* ── FOOTER ── */
 footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padding:36px var(--px);display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:20px}
 .foot-brand{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.foot-brand-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
 .foot-tagline{font-size:14px;color:rgba(255,255,255,0.25);line-height:1.65;max-width:260px}
 .foot-center{text-align:center}
 .foot-center p{font-size:14px;color:rgba(255,255,255,0.25);line-height:1.8;letter-spacing:.02em}
@@ -229,25 +229,22 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 .foot-links a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:rgba(255,255,255,0.6)}
 
-/* ── FADE IN: disabled ── */
 .fade-up{opacity:1;transform:none}
 
 @media(max-width:860px){
   :root{--px:5vw}
   nav{padding:0 var(--px)}
   .nav-links li:not(:last-child){display:none}
-  .hero-top,.stats-head,.delivers-head,.stance-header,.stance-body-cols,.framework-head,.practice-head,.practice-grid,.creds-head,.final-cta,.about-split,.problem-section{grid-template-columns:1fr}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hstat{padding:24px var(--px);border-bottom:1px solid rgba(255,255,255,0.08)}
-  .hstat-num{font-size:clamp(41px,11.5vw,60px)}
+  .hero-top,.stats-head,.delivers-head,.stance-body-cols,.practice-head,.practice-grid,.final-cta,.problem-section,.about-split{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr}
-  .sitem{padding:24px 0!important;border-right:none;border-bottom:1px solid rgba(255,255,255,0.12)}
+  .sitem{padding:32px 0!important;border-right:none;border-bottom:1px solid var(--mirage-08);align-items:center;text-align:center}
+  .sdesc,.sitem-src{text-align:center}
   .sitem:last-child{border-bottom:none}
-  .quotes-grid{grid-template-columns:1fr}
-  .creds-grid{grid-template-columns:1fr}
-  .stats-section,.delivers-section,.stance,.practice-section,.creds-section,.final-cta{padding-left:var(--px);padding-right:var(--px)}
+  .framework-body{grid-template-columns:1fr}
+  .framework-col-left{border-right:none;border-bottom:1px solid var(--mirage-08)}
+  .framework-step-minor{padding-left:var(--px);padding-right:var(--px)}
+  .stats-section,.delivers-section,.stance,.practice-section,.final-cta{padding-left:var(--px);padding-right:var(--px)}
   .framework-head{padding-left:var(--px);padding-right:var(--px)}
-  .num-row{padding:0 var(--px)}
   footer{grid-template-columns:1fr;text-align:center}
   .foot-contact{text-align:center}
   .foot-links{justify-content:center}
@@ -258,11 +255,10 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   .dtab-tag,.dtab-arrow{opacity:1!important;transform:none!important}
   .problem-section{padding:0}
   .problem-left{padding:48px var(--px)}
-  .problem-img-placeholder{min-height:320px}
   .about-img-col{min-height:300px}
   .about-txt{padding:36px var(--px)}
-  .drow{flex-wrap:wrap}
-  .drow-tag{margin:0 0 20px 88px}
+  .mini-creds-list li{flex-direction:column;gap:4px}
+  .mini-cred-label{min-width:unset}
 }
 </style>
 </head>
@@ -278,9 +274,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   </ul>
 </nav>
 
-<!-- ═══════════════════════════════════════
-     HERO
-════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-top fade-up">
       <h1 class="hero-h1">Businesses Getting Real Results from AI are <em>Thinking Differently.</em></h1>
@@ -292,9 +286,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     STATISTICS & THREAT VALIDATION
-════════════════════════════════════════ -->
+<!-- STATISTICS -->
 <section class="stats-section fade-up" id="stats">
   <div class="stats-head">
     <div>
@@ -310,6 +302,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       </ul>
     </div>
   </div>
+  <!-- CHANGE 1: Centered stats row -->
   <div class="stats-row">
     <div class="sitem">
       <div class="snum">80%</div>
@@ -330,12 +323,8 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   <p class="stats-note">Moving fast without a plan is not a strategy. <strong>It is a cost.</strong></p>
 </section>
 
-<!-- ═══════════════════════════════════════
-     THE PROBLEM
-════════════════════════════════════════ -->
+<!-- THE PROBLEM -->
 <section class="problem-section fade-up">
-
-  <!-- LEFT: copy + quotes -->
   <div class="problem-left">
     <div>
       <h2 class="sh">"I know we should be looking at AI... I just don't know what's actually <em>worth pursuing.</em>"</h2>
@@ -352,69 +341,59 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <strong>Clarity Comes First.</strong>
     </div>
   </div>
-
-  <!-- RIGHT: image -->
   <div class="problem-right">
     <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1778704003/ChatGPT_Image_13_May_2026_23_26_28_unvkmb.png" alt="The Problem" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
   </div>
-
 </section>
 
-<!-- ═══════════════════════════════════════
-     THE FRAMEWORK
-════════════════════════════════════════ -->
+<!-- THE FRAMEWORK -->
+<!-- CHANGE 2: Period removed from title, new two-column layout -->
 <section class="framework-section fade-up" id="framework">
   <div class="framework-head">
-    <div>
-      <h2 class="sh">A Structured Path.<br>Designed around <em>Your Business</em></h2>
-    </div>
+    <h2 class="sh">A Structured Path<br>Designed around <em>Your Business</em></h2>
   </div>
 
-  <div class="num-row">
-    <div class="row-n">01</div>
-    <div class="row-tag">Step 1</div>
-    <div class="row-content">
-      <div class="row-header">
+  <div class="framework-body">
+    <!-- Left column: Step 1 prominent -->
+    <div class="framework-col-left">
+      <div class="framework-step-main">
+        <div class="row-tag">Step 1</div>
         <div class="row-title">Assessment</div>
-      </div>
-      <div class="row-body">
-        <p><strong>Susan will guide you through a strategic engagement</strong> to identify where AI can create measurable value across your business, not just within isolated tasks.</p>
-        <p>Many businesses still approach AI tactically without understanding the wider impact, leading to fragmented systems, low adoption, and missed value.</p>
-        <p><strong>We take a holistic approach.</strong><br>The result is a clear, phased roadmap. A customized plan will align with your goals, systems, and people, giving you a practical path forward and confidence in what to move ahead with.</p>
+        <div class="row-body">
+          <p><strong>Susan will guide you through a strategic engagement</strong> to identify where AI can create measurable value across your business, not just within isolated tasks.</p>
+          <p>Many businesses still approach AI tactically without understanding the wider impact, leading to fragmented systems, low adoption, and missed value.</p>
+          <p><strong>We take a holistic approach.</strong><br>The result is a clear, phased roadmap. A customized plan will align with your goals, systems, and people, giving you a practical path forward and confidence in what to move ahead with.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="num-row">
-    <div class="row-n">02</div>
-    <div class="row-tag">Step 2</div>
-    <div class="row-content">
-      <div class="row-header">
+    <!-- Right column: Steps 2 & 3 stacked -->
+    <div class="framework-col-right">
+      <div class="framework-step-minor">
+        <div class="row-tag">Step 2</div>
         <div class="row-title">Implementation</div>
+        <div class="row-body">
+          <p><strong>You have a clear strategic roadmap in hand.</strong> From there, you move forward with fit-for-purpose AI solutions, introduced in manageable phases and aligned with your business goals and operational priorities.</p>
+        </div>
       </div>
-      <div class="row-body">
-        <p><strong>You have a clear strategic roadmap in hand.</strong> From there, you move forward with fit-for-purpose AI solutions, introduced in manageable phases and aligned with your business goals and operational priorities.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="num-row">
-    <div class="row-n">03</div>
-    <div class="row-tag">Step 3</div>
-    <div class="row-content">
-      <div class="row-header">
+      <div class="framework-step-minor">
+        <div class="row-tag">Step 3</div>
         <div class="row-title">Adoption</div>
-      </div>
-      <div class="row-body">
-        <p><strong>Implementation is not the finish line.</strong> This step ensures your teams are trained, supported, and confident. Susan will guide the process to ensure AI is adopted in practice, because even the best AI solution fails if people don't adopt it.</p>
+        <div class="row-body">
+          <p><strong>Implementation is not the finish line.</strong> This step ensures your teams are trained, supported, and confident. Susan will guide the process to ensure AI is adopted in practice, because even the best AI solution fails if people don't adopt it.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     WHAT THE RIGHT APPROACH DELIVERS
-════════════════════════════════════════ -->
+<!-- CHANGE 3: Transition banner between Framework and Delivers -->
+<div class="framework-transition">
+  <p>Don't invest in AI until you know <strong>why.</strong></p>
+</div>
+
+<!-- WHAT THE RIGHT APPROACH DELIVERS -->
 <section class="delivers-section fade-up">
   <div class="delivers-head">
     <div>
@@ -424,8 +403,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   </div>
 
   <div class="delivers-tabs">
-
-    <!-- TAB 1 -->
+    <!-- TAB 1 — CHANGE 4: numbers removed -->
     <div class="dtab" data-index="0">
       <div class="dtab-bg">
         <div class="dtab-bg-inner">
@@ -435,7 +413,6 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="dtab-overlay"></div>
       <div class="dtab-content">
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>Direction</div>
-        <div class="dtab-num">01</div>
         <div class="dtab-title">A Clear<br>Roadmap</div>
         <div class="dtab-body">You move forward with a clear roadmap. Every recommendation is grounded in your specific goals, workflows, systems, and people.</div>
       </div>
@@ -451,7 +428,6 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="dtab-overlay"></div>
       <div class="dtab-content">
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>People</div>
-        <div class="dtab-num">02</div>
         <div class="dtab-title">Adoption<br>that Sticks</div>
         <div class="dtab-body">Your teams adopt new ways of working with confidence because they're prepared and supported from the start.</div>
       </div>
@@ -467,29 +443,24 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <div class="dtab-overlay"></div>
       <div class="dtab-content">
         <div class="dtab-tag"><span class="dtab-tag-dot"></span>Output</div>
-        <div class="dtab-num">03</div>
         <div class="dtab-title">Time for<br>High-Value Work</div>
         <div class="dtab-body">Your teams spend less time on low-value work and more time on work that drives revenue.</div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     THE HARD STANCE
-════════════════════════════════════════ -->
+<!-- THE HARD STANCE -->
+<!-- CHANGE 5: subtitle moved into left column of body, aligned with columns below -->
 <section class="stance fade-up">
-
-  <!-- Header: new headline + subtitle -->
   <div class="stance-header">
     <h2 class="sh sh-white">If This Is Your Goal,<br>We're <em>Not a Fit.</em></h2>
-    <p class="stance-subtitle">If your goal is to use AI to eliminate people, we're not the right fit for you. Full stop.</p>
   </div>
 
-  <!-- Two-column body text -->
   <div class="stance-body-cols">
     <div>
+      <!-- Subtitle now sits at top of left column, aligned with body text -->
+      <p class="stance-col-subtitle">If your goal is to use AI to eliminate people, we're not the right fit for you. Full stop.</p>
       <p>AI is one of the most powerful operational advantages available to service businesses today. Used correctly, it removes daily friction, frees your team for higher-value work, and creates real efficiency across your operation.</p>
       <p>But it is not a shortcut to cutting your headcount. This is where Susan draws a hard line.</p>
     </div>
@@ -498,17 +469,12 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
       <p class="stance-final">AI is an assistant. Not a replacement.</p>
     </div>
   </div>
-
 </section>
 
-<!-- ═══════════════════════════════════════
-     WHAT THIS LOOKS LIKE IN PRACTICE
-════════════════════════════════════════ -->
+<!-- WHAT THIS LOOKS LIKE IN PRACTICE -->
 <section class="practice-section fade-up">
   <div class="practice-head">
-    <div>
-      <h2 class="sh">What This Looks<br>Like <em>in Practice</em></h2>
-    </div>
+    <h2 class="sh">What This Looks<br>Like <em>in Practice</em></h2>
   </div>
   <div class="practice-grid">
     <div class="pcard">
@@ -522,9 +488,8 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     AUTHORITY / ABOUT
-════════════════════════════════════════ -->
+<!-- ABOUT -->
+<!-- CHANGE 6: image aligns to bottom; credentials as list -->
 <div class="about-split fade-up" id="about">
   <div class="about-img-col">
     <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
@@ -539,33 +504,38 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
     <p>Bridging that gap has been central to her work ever since.</p>
     <p><em><strong>Today, Susan is still the person people turn to when technology feels complex, not because she simplifies the work, but because she helps people feel capable navigating it.</strong></em></p>
 
+    <!-- CHANGE 6: credentials as vertical list -->
     <div class="mini-creds">
       <div class="mini-creds-title">Experience &amp; Credentials</div>
-      <div class="mini-creds-grid">
-        <div class="mini-cred">
-          <div class="mini-cred-label">Education</div>
-          <div class="mini-cred-text">Bachelor of Commerce — Major in Human Resources and Organizational Effectiveness</div>
-        </div>
-        <div class="mini-cred">
-          <div class="mini-cred-label">Organizational Experience</div>
-          <div class="mini-cred-text">20+ years across major corporations in Human Resources, Talent Management, Business Analysis, and Systems Support &amp; Training</div>
-        </div>
-        <div class="mini-cred">
-          <div class="mini-cred-label">Training &amp; Facilitation</div>
-          <div class="mini-cred-text">Senior Trainer, Peter Sage Academy — Licensed facilitator of transformational human behaviour programs</div>
-        </div>
-        <div class="mini-cred">
-          <div class="mini-cred-label">AI Certifications</div>
-          <div class="mini-cred-text">Certified AI Consultant · Certified AI Implementations Level 1 · Certified AI Data &amp; Technical Foundations Level 1</div>
-        </div>
-      </div>
+      <ul class="mini-creds-list">
+        <li>
+          <span class="mini-cred-label">Education</span>
+          <span class="mini-cred-text">Bachelor of Commerce — Major in Human Resources and Organizational Effectiveness</span>
+        </li>
+        <li>
+          <span class="mini-cred-label">Organizational Experience</span>
+          <span class="mini-cred-text">20+ years across major corporations in Human Resources, Talent Management, Business Analysis, and Systems Support &amp; Training</span>
+        </li>
+        <li>
+          <span class="mini-cred-label">Training &amp; Facilitation</span>
+          <span class="mini-cred-text">Senior Trainer, Peter Sage Academy — Licensed facilitator of transformational human behaviour programs</span>
+        </li>
+        <li>
+          <span class="mini-cred-label">AI Certifications</span>
+          <div>
+            <ul class="mini-cred-sublist">
+              <li>Certified AI Consultant</li>
+              <li>Certified AI Implementations Level 1</li>
+              <li>Certified AI Data &amp; Technical Foundations Level 1</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     FINAL CTA
-════════════════════════════════════════ -->
+<!-- FINAL CTA -->
 <section class="final-cta fade-up" id="contact">
   <h2 class="sh">Let's See If <em>We're a Fit</em></h2>
   <p class="cta-desc">A practical conversation to determine whether a strategic AI approach makes sense for your business right now.</p>
@@ -573,9 +543,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   <p class="cta-meta">📞 1-403-993-8992 &nbsp;·&nbsp; linkedin.com/in/susanrabby &nbsp;·&nbsp; AI Guidance Consulting Ltd. · Calgary, AB</p>
 </section>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div>
     <div class="foot-brand"><img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776767672/logo_i3eron.png" alt="Susan Rabby AI Guidance" style="height:28px;width:auto;display:block;opacity:0.75;filter:brightness(0) invert(1)"></div>

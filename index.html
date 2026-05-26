@@ -171,9 +171,8 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .about-txt p{font-size:18px;color:var(--mirage-50);line-height:1.85;margin-bottom:1rem}
 .creds-section{padding:0 var(--px) 64px}
 .creds-head{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mirage-50);padding:32px 0 24px}
-.creds-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--mirage)}
-.cred-box{padding:24px 22px;border-right:1px solid var(--mirage)}
-.cred-box:last-child{border-right:none}
+.creds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.cred-box{padding:0}
 .cred-title{font-size:15px;font-weight:600;color:var(--mirage);margin-bottom:12px;line-height:1.35}
 .cred-body{font-size:15px;color:var(--mirage-50);line-height:1.65;margin:0}
 .cred-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -236,9 +235,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   .about-txt{padding:36px var(--px)}
   .about-txt-inner{margin:0}
   .creds-section{padding:0 var(--px) 48px}
-  .creds-grid{grid-template-columns:1fr}
-  .cred-box{border-right:none;border-bottom:1px solid var(--mirage)}
-  .cred-box:last-child{border-bottom:none}
+  .creds-grid{grid-template-columns:1fr;gap:28px}
 }
 </style>
 </head>

@@ -126,18 +126,18 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .delivers-section{background:var(--white);padding:80px var(--px);border-top:1px solid var(--mirage-08)}
 .delivers-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
 .delivers-intro{font-size:18px;color:var(--mirage-50);line-height:1.85}
-.delivers-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:480px;border:1px solid var(--mirage-08)}
-.dtab{position:relative;overflow:hidden;border-right:1px solid var(--mirage-08)}
+.delivers-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:stretch;height:480px;border:1px solid var(--mirage-08)}
+.dtab{position:relative;overflow:hidden;border-right:1px solid var(--mirage-08);min-height:100%}
 .dtab:last-child{border-right:none}
 .dtab-bg{position:absolute;inset:0}
 .dtab-bg-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .dtab-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,35,42,0.45) 0%,rgba(22,35,42,0.85) 100%);z-index:1}
-.dtab-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 28px}
-.dtab-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,1);margin-bottom:12px}
-.dtab-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.dtab-content{position:absolute;inset:0;z-index:2;display:grid;grid-template-rows:1fr auto auto auto;padding:32px 28px}
+.dtab-tag{grid-row:2;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,1);margin-bottom:12px;line-height:1}
+.dtab-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
 .dtab-num{display:none}
-.dtab-title{font-family:'Fraunces',serif;font-size:clamp(21px,2.3vw,28px);font-weight:300;color:var(--white);line-height:1.2;letter-spacing:-0.01em;margin-bottom:12px}
-.dtab-body{font-size:16px;color:rgba(255,255,255,1);line-height:1.75}
+.dtab-title{grid-row:3;font-family:'Fraunces',serif;font-size:clamp(21px,2.3vw,28px);font-weight:300;color:var(--white);line-height:1.2;letter-spacing:-0.01em;margin-bottom:12px;min-height:calc(1.2em * 2)}
+.dtab-body{grid-row:4;font-size:16px;color:rgba(255,255,255,1);line-height:1.75;min-height:calc(1.75em * 3)}
 .dtab-arrow{display:none}
 
 /* ── STANCE ── */
@@ -145,11 +145,10 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .stance::before{content:'';position:absolute;inset:0;background:url('https://res.cloudinary.com/dcuswyfur/image/upload/v1776761211/43f2fb697ddb0b606dfc56e1e29c4cf8_LE_upscale_prime_su3vxf.jpg') center center / cover no-repeat;z-index:0;opacity:.18}
 .stance > *{position:relative;z-index:1}
 .stance-header{padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:48px}
-.stance-subtitle{display:none}
+.stance-subtitle{font-size:20px;font-weight:600;color:rgba(255,255,255,1);line-height:1.55;margin-top:20px;white-space:nowrap;text-wrap:nowrap}
 .stance-body-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .stance-body-cols p{font-size:18px;color:rgba(255,255,255,1);line-height:1.85;margin-bottom:14px}
 .stance-body-cols p:last-child{margin-bottom:0}
-.stance-col-subtitle{font-size:20px;font-weight:600;color:rgba(255,255,255,1);line-height:1.55;margin-bottom:20px}
 .hardline{display:none}
 .stance-final{font-size:16px;font-weight:700;color:rgba(255,255,255,1)!important;text-transform:uppercase;letter-spacing:.12em}
 
@@ -161,23 +160,25 @@ nav{position:absolute;top:0;left:0;right:0;z-index:200;background:transparent;he
 .pcard-title{font-size:22px;font-weight:600;color:var(--mirage);margin-bottom:14px;letter-spacing:.01em}
 .pcard-body{font-size:18px;color:var(--mirage-50);line-height:1.85}
 
-/* ── ABOUT SPLIT ── */
-.about-split{background:var(--white);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--mirage-08);align-items:end}
-.about-img-col{position:relative;overflow:hidden;background:var(--teal);border-right:1px solid var(--mirage-08);display:flex;align-items:flex-end}
-.about-img-col img{width:100%;display:block;object-fit:cover;object-position:center top}
-.about-txt{padding:64px 56px}
+/* ── ABOUT ── */
+.about-wrap{background:var(--white);border-top:1px solid var(--mirage-08)}
+.about-split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.about-img-col{position:relative;overflow:hidden;background:var(--teal);border-right:1px solid var(--mirage-08);display:flex;min-height:0}
+.about-img-col img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center}
+.about-txt{display:flex;flex-direction:column;min-height:100%;padding:48px 56px;box-sizing:border-box}
+.about-txt-inner{margin:auto 0;width:100%}
 .about-txt .sh{margin-bottom:24px}
 .about-txt p{font-size:18px;color:var(--mirage-50);line-height:1.85;margin-bottom:1rem}
-.mini-creds{margin-top:36px;padding-top:28px;border-top:1px solid var(--mirage-08)}
-.mini-creds-title{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mirage-50);margin-bottom:20px}
-.mini-creds-list{display:flex;flex-direction:column;gap:0;list-style:none}
-.mini-creds-list li{padding:14px 0;border-bottom:1px solid var(--mirage-08);display:flex;gap:16px;align-items:baseline}
-.mini-creds-list li:last-child{border-bottom:none}
-.mini-cred-label{font-size:14px;font-weight:600;color:var(--mirage);white-space:nowrap;min-width:160px;flex-shrink:0}
-.mini-cred-text{font-size:15px;color:var(--mirage-50);line-height:1.65}
-.mini-cred-sublist{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:2px}
-.mini-cred-sublist li{font-size:15px;color:var(--mirage-50);line-height:1.65;padding-left:14px;position:relative}
-.mini-cred-sublist li::before{content:'·';position:absolute;left:0;color:var(--orange)}
+.creds-section{padding:0 var(--px) 64px}
+.creds-head{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mirage-50);padding:32px 0 24px}
+.creds-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--mirage)}
+.cred-box{padding:24px 22px;border-right:1px solid var(--mirage)}
+.cred-box:last-child{border-right:none}
+.cred-title{font-size:15px;font-weight:600;color:var(--mirage);margin-bottom:12px;line-height:1.35}
+.cred-body{font-size:15px;color:var(--mirage-50);line-height:1.65;margin:0}
+.cred-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.cred-list li{font-size:15px;color:var(--mirage-50);line-height:1.65;padding-left:14px;position:relative}
+.cred-list li::before{content:'·';position:absolute;left:0;color:var(--mirage)}
 
 /* ── FINAL CTA ── */
 .final-cta{position:relative;padding:60px var(--px);overflow:hidden}
@@ -211,6 +212,7 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   nav{padding:0 var(--px)}
   .nav-links li:not(:last-child){display:none}
   .hero-top,.stats-head,.delivers-head,.stance-body-cols,.practice-head,.practice-grid,.final-cta,.problem-section,.about-split{grid-template-columns:1fr}
+  .stance-subtitle{white-space:normal;text-wrap:pretty}
   .stats-row{grid-template-columns:1fr}
   .sitem{padding:32px 0!important;align-items:center;text-align:center}
   .sdesc,.sitem-src{text-align:center}
@@ -225,14 +227,18 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
   .delivers-tabs{grid-template-columns:1fr;height:auto}
   .dtab{min-height:260px;border-right:none;border-bottom:1px solid var(--mirage-08)}
   .dtab:last-child{border-bottom:none}
-  .dtab-body{max-height:none!important;opacity:1!important;margin-top:12px!important}
+  .dtab-title{min-height:auto}
+  .dtab-body{min-height:auto;max-height:none!important;opacity:1!important;margin-top:12px!important}
   .dtab-tag,.dtab-arrow{opacity:1!important;transform:none!important}
   .problem-section{padding:0}
   .problem-left{padding:48px var(--px)}
   .about-img-col{min-height:300px}
   .about-txt{padding:36px var(--px)}
-  .mini-creds-list li{flex-direction:column;gap:4px}
-  .mini-cred-label{min-width:unset}
+  .about-txt-inner{margin:0}
+  .creds-section{padding:0 var(--px) 48px}
+  .creds-grid{grid-template-columns:1fr}
+  .cred-box{border-right:none;border-bottom:1px solid var(--mirage)}
+  .cred-box:last-child{border-bottom:none}
 }
 </style>
 </head>
@@ -401,11 +407,11 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 <!-- THE HARD STANCE -->
 <section class="stance fade-up">
   <div class="stance-header">
-    <h2 class="sh sh-white">If This Is Your Goal,<br>We're <em>Not a Fit.</em></h2>
+    <h2 class="sh sh-white">If This Is Your Goal,<br>We're <em>Not a&nbsp;Fit.</em></h2>
+    <p class="stance-subtitle">If your goal is to use AI to eliminate people, we're not the right fit for&nbsp;you. Full&nbsp;stop.</p>
   </div>
   <div class="stance-body-cols">
     <div>
-      <p class="stance-col-subtitle">If your goal is to use AI to eliminate people, we're not the right fit for you. Full stop.</p>
       <p>AI is one of the most powerful operational advantages available to service businesses today. Used correctly, it removes daily friction, frees your team for higher-value work, and creates real efficiency across your operation.</p>
       <p>But it is not a shortcut to cutting your headcount. This is where Susan draws a hard line.</p>
     </div>
@@ -434,45 +440,47 @@ footer{background:var(--mirage);border-top:1px solid rgba(255,255,255,0.07);padd
 </section>
 
 <!-- ABOUT -->
-<div class="about-split fade-up" id="about">
-  <div class="about-img-col">
-    <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
+<div class="about-wrap fade-up" id="about">
+  <div class="about-split">
+    <div class="about-img-col">
+      <img src="https://res.cloudinary.com/dcuswyfur/image/upload/v1776726242/M26_7590-Edit-2_koa8v6.jpg" alt="Susan Rabby">
+    </div>
+    <div class="about-txt">
+      <div class="about-txt-inner">
+        <h2 class="sh" style="margin-bottom:28px">20+ Years at the Intersection of <em>People, Systems, and Operations</em></h2>
+        <p>Susan Rabby is not a technologist. She is a people and systems expert who has spent two decades helping organizations grow and adapt.</p>
+        <p>Her corporate career spans Human Resources, Talent Management, systems training, and business analysis across major organizations in Canada's oil and gas, engineering, and rail sectors.</p>
+        <p>She saw a consistent pattern: technology implementations succeed when people are supported and fail when they are not.</p>
+        <p>Early in her career, a hiring manager told Susan exactly why he wanted her on his team. His department had two groups: one worked with systems, the other worked with processes. Both were capable, but they didn't communicate effectively with each other.</p>
+        <p>He needed someone who could bridge that gap, translate, align, and help both sides work together. He hired Susan for exactly that reason.</p>
+        <p>Bridging that gap has been central to her work ever since.</p>
+        <p><em><strong>Today, Susan is still the person people turn to when technology feels complex, not because she simplifies the work, but because she helps people feel capable navigating it.</strong></em></p>
+      </div>
+    </div>
   </div>
-  <div class="about-txt">
-    <h2 class="sh" style="margin-bottom:28px">20+ Years at the Intersection of <em>People, Systems, and Operations</em></h2>
-    <p>Susan Rabby is not a technologist. She is a people and systems expert who has spent two decades helping organizations grow and adapt.</p>
-    <p>Her corporate career spans Human Resources, Talent Management, systems training, and business analysis across major organizations in Canada's oil and gas, engineering, and rail sectors.</p>
-    <p>She saw a consistent pattern: technology implementations succeed when people are supported and fail when they are not.</p>
-    <p>Early in her career, a hiring manager told Susan exactly why he wanted her on his team. His department had two groups: one worked with systems, the other worked with processes. Both were capable, but they didn't communicate effectively with each other.</p>
-    <p>He needed someone who could bridge that gap, translate, align, and help both sides work together. He hired Susan for exactly that reason.</p>
-    <p>Bridging that gap has been central to her work ever since.</p>
-    <p><em><strong>Today, Susan is still the person people turn to when technology feels complex, not because she simplifies the work, but because she helps people feel capable navigating it.</strong></em></p>
-    <div class="mini-creds">
-      <div class="mini-creds-title">Experience &amp; Credentials</div>
-      <ul class="mini-creds-list">
-        <li>
-          <span class="mini-cred-label">Education</span>
-          <span class="mini-cred-text">Bachelor of Commerce — Major in Human Resources and Organizational Effectiveness</span>
-        </li>
-        <li>
-          <span class="mini-cred-label">Organizational Experience</span>
-          <span class="mini-cred-text">20+ years across major corporations in Human Resources, Talent Management, Business Analysis, and Systems Support &amp; Training</span>
-        </li>
-        <li>
-          <span class="mini-cred-label">Training &amp; Facilitation</span>
-          <span class="mini-cred-text">Senior Trainer, Peter Sage Academy — Licensed facilitator of transformational human behaviour programs</span>
-        </li>
-        <li>
-          <span class="mini-cred-label">AI Certifications</span>
-          <div>
-            <ul class="mini-cred-sublist">
-              <li>Certified AI Consultant</li>
-              <li>Certified AI Implementations Level 1</li>
-              <li>Certified AI Data &amp; Technical Foundations Level 1</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+  <div class="creds-section">
+    <div class="creds-head">Experience &amp; Credentials</div>
+    <div class="creds-grid">
+      <div class="cred-box">
+        <div class="cred-title">Education</div>
+        <p class="cred-body">Bachelor of Commerce — Major in Human Resources and Organizational Effectiveness</p>
+      </div>
+      <div class="cred-box">
+        <div class="cred-title">Organizational Experience</div>
+        <p class="cred-body">20+ years across major corporations in Human Resources, Talent Management, Business Analysis, and Systems Support &amp; Training</p>
+      </div>
+      <div class="cred-box">
+        <div class="cred-title">Training &amp; Facilitation</div>
+        <p class="cred-body">Senior Trainer, Peter Sage Academy — Licensed facilitator of transformational human behaviour programs</p>
+      </div>
+      <div class="cred-box">
+        <div class="cred-title">AI Certifications</div>
+        <ul class="cred-list">
+          <li>Certified AI Consultant</li>
+          <li>Certified AI Implementations Level 1</li>
+          <li>Certified AI Data &amp; Technical Foundations Level 1</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
